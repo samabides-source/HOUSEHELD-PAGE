@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  /* Gleiche Basis wie die App: helles Grau als Hintergrund, dunkles Grau für Text. */
+  --color-canvas: #f5f6f8;
+  --color-ink: #2b2f36;
+  --color-ink-muted: #6b7280;
+
+  --font-sans:
+    "Segoe UI Variable", "Segoe UI", ui-rounded, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    Arial, sans-serif;
+
+  --radius-card: 1rem;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-indigo-500);
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  /* Blendet die Scrollbar in der horizontal scrollbaren Navigation aus. */
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
