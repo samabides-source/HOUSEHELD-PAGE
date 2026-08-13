@@ -43,6 +43,43 @@ Alle Texte stehen in [lib/content.de.ts](lib/content.de.ts) und
 - [public/llms.txt](public/llms.txt) fasst die Seite maschinenlesbar für LLM-Crawler zusammen.
 - OG-Bilder werden dynamisch generiert (`app/opengraph-image.tsx`, `app/en/opengraph-image.tsx`).
 
+## Entwicklungsverlauf
+
+### Meilensteine
+
+Die Marketingseite entstand als Grundgerüst mit fünf Seiten (Home, Features, FAQ, About, App
+testen), im gleichen Design wie die App. Danach kamen eine Kontaktadresse auf der About-Seite
+sowie Fotos auf Home und Features dazu, und die About-Seite wurde neu strukturiert: Projekt,
+Technik und Hintergrundentscheide sind seither in einer aufklappbaren Kachel zusammengefasst.
+
+Der grösste Schritt war eine vollständige SEO-, AEO- und GEO-Überarbeitung kombiniert mit dem
+Aufbau einer kompletten englischen Sprachversion. Die Inhalte wurden dafür in getrennte deutsche
+und englische Dateien mit gemeinsamer Struktur aufgeteilt, Deutsch ohne Präfix, Englisch unter
+eigenem Pfad. Ergänzt wurden strukturierte Daten für Suchmaschinen und Sprachassistenten,
+dynamisch generierte Vorschaubilder, eine maschinenlesbare Zusammenfassung für KI-Crawler sowie
+Sprachverweise auf jeder Seite.
+
+Zum Schluss wurde die Verlinkung zur App sprachabhängig gemacht, nachdem auch die App selbst eine
+englische Version erhielt: Alle Links sowie das App-Mockup zeigen seither je nach gewählter
+Sprache auf die passende Version.
+
+### Wichtige Anpassungen
+
+- Das Home-Foto wurde mehrfach ausgetauscht, bis ein passendes Motiv gefunden war – die Lizenz
+  wurde dabei sauber pro Bild dokumentiert.
+- Die Inhalte wurden von einer einzelnen Content-Datei auf getrennte, sprachspezifische Dateien
+  mit gemeinsamer Struktur umgestellt, als Grundlage für die Zweisprachigkeit.
+- Die App-Verlinkung wurde von einer festen URL auf eine sprachabhängige Zuordnung umgebaut,
+  ebenso das App-Mockup, das seither je nach Sprache passende Texte zeigt.
+
+### Bugfixes
+
+- Ein bei jedem Build neu gesetztes, bedeutungsloses Datum in der Sitemap wurde fest gesetzt.
+- Die Sprachangabe des Dokuments wurde korrigiert.
+- Überflüssige Screenreader-Ausgaben bei den Logo-Symbolen wurden unterdrückt.
+- Verwaiste Verweise auf die alte Content-Datei wurden bereinigt.
+- Eine überholte Aussage zur App-Oberfläche wurde im Leitfaden korrigiert.
+
 ## Deployment
 
 Auf Vercel als Next.js-Projekt importieren, ohne weitere Konfiguration. Nach dem ersten Deployment
