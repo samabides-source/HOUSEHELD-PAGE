@@ -72,11 +72,11 @@ export default function HomePage() {
 
           <div className="lg:col-span-2">
             <PhotoFrame
-              src="/images/people-phone.jpg"
-              alt="Drei lächelnde junge Menschen schauen gemeinsam auf ein Smartphone"
-              width={960}
-              height={640}
-              caption="Ein Foto sagt mehr als eine Nachricht, die im Gruppenchat untergeht."
+              src="/images/plant-photo.jpg"
+              alt="Eine Person fotografiert Zimmerpflanzen im Wohnzimmer mit dem Smartphone"
+              width={1200}
+              height={800}
+              caption="Ein Foto zeigt genau, worum es geht – keine lange Beschreibung nötig."
             />
           </div>
         </div>
