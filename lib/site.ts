@@ -12,6 +12,7 @@ export const site = {
   /** Die produktive Web-App. */
   appUrl: "https://househeld-app.vercel.app/",
   author: "Sandro Müntener",
+  contactEmail: "samabides@gmail.com",
   context: "CAS AIMP – Modul «Viben und Coden», FS26",
 } as const;
 

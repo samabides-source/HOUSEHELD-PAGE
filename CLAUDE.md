@@ -125,6 +125,12 @@ Metadaten, Sitemap und `robots.txt` ab.
 
 ## Offene Punkte
 
-- Kontaktadresse auf `/about` ist ein Platzhalter (`TODO` im Code).
 - `AppMockup` ist eine nachgebaute Karte, kein Screenshot. Sobald echte Screenshots der App
   vorliegen, kann die Komponente ersetzt werden.
+
+## Fotos (Home/Features)
+
+Home und Features enthalten je 1–2 gemeinfreie Fotos (CC0, über Openverse recherchiert) unter
+`public/images/`. Lokal eingebunden statt verlinkt, damit der Build ohne Netzwerkzugriff
+funktioniert – dieselbe Regel wie bei Schriften und sonstigen Assets. Quelle und Lizenz stehen
+in `public/images/CREDITS.md`.

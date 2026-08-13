@@ -58,58 +58,67 @@ export default function AboutPage() {
                 wollen – ohne sich vorher auf ein Projektmanagement-Tool einigen zu müssen.
               </p>
             </article>
-
-            <article className="rounded-2xl bg-white px-6 py-8 ring-1 ring-slate-200/80 sm:px-10">
-              <h2 className="text-xl font-extrabold tracking-tight">Entscheide unter der Haube</h2>
-              <p className="mt-3 text-slate-600 text-pretty">
-                Die Daten liegen bewusst im Browser statt auf einem Server: Das macht die App ohne
-                Login nutzbar, verursacht keine Kosten und gibt keine Fotos aus der Hand. Der Preis
-                dafür ist, dass der Bestand pro Gerät gilt. Eine Synchronisation liesse sich
-                nachrüsten, indem die Datenzugriffsschicht gegen eine echte Datenbank getauscht wird
-                – die übrige App bliebe unverändert.
-              </p>
-            </article>
           </div>
 
           <aside className="space-y-6">
-            <div className="rounded-2xl bg-white p-6 ring-1 ring-slate-200/80">
-              <h2 className="text-lg font-extrabold tracking-tight">Projekt</h2>
-              <dl className="mt-4 space-y-3 text-sm">
-                <div>
-                  <dt className="font-semibold text-slate-500">Autor</dt>
-                  <dd>{site.author}</dd>
-                </div>
-                <div>
-                  <dt className="font-semibold text-slate-500">Rahmen</dt>
-                  <dd>{site.context}</dd>
-                </div>
-                <div>
-                  <dt className="font-semibold text-slate-500">Stand</dt>
-                  <dd>August 2026</dd>
-                </div>
-              </dl>
-            </div>
+            <details className="group rounded-2xl bg-white ring-1 ring-slate-200/80 open:ring-indigo-200">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 text-lg font-extrabold tracking-tight">
+                Projektdetails
+                <span
+                  aria-hidden
+                  className="shrink-0 text-xl leading-none text-indigo-600 transition group-open:rotate-45"
+                >
+                  +
+                </span>
+              </summary>
 
-            <div className="rounded-2xl bg-white p-6 ring-1 ring-slate-200/80">
-              <h2 className="text-lg font-extrabold tracking-tight">Technik</h2>
-              <ul className="mt-4 space-y-3 text-sm">
-                {stack.map((item) => (
-                  <li key={item.label}>
-                    <span className="font-extrabold">{item.label}</span>
-                    <span className="block text-slate-500">{item.note}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+              <div className="space-y-6 px-6 pb-6 text-sm">
+                <dl className="space-y-3">
+                  <div>
+                    <dt className="font-semibold text-slate-500">Autor</dt>
+                    <dd>{site.author}</dd>
+                  </div>
+                  <div>
+                    <dt className="font-semibold text-slate-500">Rahmen</dt>
+                    <dd>{site.context}</dd>
+                  </div>
+                  <div>
+                    <dt className="font-semibold text-slate-500">Stand</dt>
+                    <dd>August 2026</dd>
+                  </div>
+                </dl>
 
-            {/* TODO: Kontaktadresse eintragen, bevor die Seite öffentlich geht. */}
+                <ul className="space-y-3 border-t border-slate-100 pt-6">
+                  {stack.map((item) => (
+                    <li key={item.label}>
+                      <span className="font-extrabold">{item.label}</span>
+                      <span className="block text-slate-500">{item.note}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <p className="border-t border-slate-100 pt-6 text-slate-600 text-pretty">
+                  Die Daten liegen bewusst im Browser statt auf einem Server: Das macht die App
+                  ohne Login nutzbar, verursacht keine Kosten und gibt keine Fotos aus der Hand.
+                  Eine Synchronisation mit einer Datenbank zur geräteübergreifenden Nutzung ist
+                  aktuell in Entwicklung.
+                </p>
+              </div>
+            </details>
+
             <div className="rounded-2xl bg-white p-6 ring-1 ring-slate-200/80">
               <h2 className="text-lg font-extrabold tracking-tight">Kontakt</h2>
               <p className="mt-3 text-sm text-slate-600">
                 Rückmeldungen, Fehler und Ideen sind willkommen.
               </p>
-              <p className="mt-3 text-sm font-semibold text-slate-400">
-                Kontaktadresse folgt
+              <p className="mt-3 text-sm">
+                <span className="block font-semibold">{site.author}</span>
+                <a
+                  href={`mailto:${site.contactEmail}`}
+                  className="text-indigo-700 hover:text-indigo-900"
+                >
+                  {site.contactEmail}
+                </a>
               </p>
             </div>
           </aside>

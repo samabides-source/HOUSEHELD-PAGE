@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { CtaBanner } from "@/components/CtaBanner";
 import { FeatureCard } from "@/components/FeatureCard";
+import { PhotoFrame } from "@/components/PhotoFrame";
 import { Section, SectionHeading } from "@/components/Section";
 import { features } from "@/lib/content";
 
@@ -15,12 +16,23 @@ export default function FeaturesPage() {
   return (
     <>
       <Section className="pt-10 sm:pt-16">
-        <SectionHeading
-          as="h1"
-          eyebrow="Features"
-          title="Alles, was ein Haushalt braucht – und nichts mehr"
-          lead="Hausheld verzichtet bewusst auf Ballast. Diese Funktionen sind da, weil sie im Alltag gebraucht werden."
-        />
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          <SectionHeading
+            as="h1"
+            eyebrow="Features"
+            title="Alles, was ein Haushalt braucht – und nichts mehr"
+            lead="Hausheld verzichtet bewusst auf Ballast. Diese Funktionen sind da, weil sie im Alltag gebraucht werden."
+          />
+
+          <PhotoFrame
+            src="/images/mop.jpg"
+            alt="Wischmopp auf Holzboden"
+            width={960}
+            height={640}
+            caption="Ein Foto zeigt genau, was zu tun ist – kein Rätselraten mehr."
+            priority
+          />
+        </div>
       </Section>
 
       <Section className="pt-0">

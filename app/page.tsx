@@ -2,6 +2,7 @@ import { AppMockup } from "@/components/AppMockup";
 import { CtaBanner } from "@/components/CtaBanner";
 import { CtaExternal, CtaLink } from "@/components/CtaButton";
 import { FeatureCard } from "@/components/FeatureCard";
+import { PhotoFrame } from "@/components/PhotoFrame";
 import { Section, SectionHeading } from "@/components/Section";
 import { highlights, steps } from "@/lib/content";
 import { site } from "@/lib/site";
@@ -44,25 +45,39 @@ export default function HomePage() {
 
       {/* Problem */}
       <Section className="py-8 sm:py-10">
-        <div className="rounded-2xl bg-white px-6 py-8 ring-1 ring-slate-200/80 sm:px-10">
-          <div className="grid gap-8 sm:grid-cols-2">
-            <div>
-              <h2 className="text-xl font-extrabold tracking-tight text-slate-500">
-                Das Problem
-              </h2>
-              <p className="mt-3 text-slate-600 text-pretty">
-                Haushaltsaufgaben werden mündlich oder in Chats verteilt – und gehen dabei unter. Es
-                fehlt ein zentraler, einfacher Ort, um zu sehen, was zu tun ist, wo genau und wer
-                zuständig ist.
-              </p>
+        <div className="grid gap-6 lg:grid-cols-5 lg:items-stretch">
+          <div className="rounded-2xl bg-white px-6 py-8 ring-1 ring-slate-200/80 sm:px-10 lg:col-span-3">
+            <div className="grid gap-8 sm:grid-cols-2">
+              <div>
+                <h2 className="text-xl font-extrabold tracking-tight text-slate-500">
+                  Das Problem
+                </h2>
+                <p className="mt-3 text-slate-600 text-pretty">
+                  Haushaltsaufgaben werden mündlich oder in Chats verteilt – und gehen dabei
+                  unter. Es fehlt ein zentraler, einfacher Ort, um zu sehen, was zu tun ist, wo
+                  genau und wer zuständig ist.
+                </p>
+              </div>
+              <div>
+                <h2 className="text-xl font-extrabold tracking-tight text-indigo-600">
+                  Die Lösung
+                </h2>
+                <p className="mt-3 text-slate-600 text-pretty">
+                  Eine einfache Web-App, in der Aufgaben mit Fotos, Zuweisung und Tags erfasst und
+                  übersichtlich dargestellt werden. Sichtbar für alle, die mitmachen.
+                </p>
+              </div>
             </div>
-            <div>
-              <h2 className="text-xl font-extrabold tracking-tight text-indigo-600">Die Lösung</h2>
-              <p className="mt-3 text-slate-600 text-pretty">
-                Eine einfache Web-App, in der Aufgaben mit Fotos, Zuweisung und Tags erfasst und
-                übersichtlich dargestellt werden. Sichtbar für alle, die mitmachen.
-              </p>
-            </div>
+          </div>
+
+          <div className="lg:col-span-2">
+            <PhotoFrame
+              src="/images/people-phone.jpg"
+              alt="Drei lächelnde junge Menschen schauen gemeinsam auf ein Smartphone"
+              width={960}
+              height={640}
+              caption="Ein Foto sagt mehr als eine Nachricht, die im Gruppenchat untergeht."
+            />
           </div>
         </div>
       </Section>
