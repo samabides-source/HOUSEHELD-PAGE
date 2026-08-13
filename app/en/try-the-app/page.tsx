@@ -4,7 +4,7 @@ import { Section, SectionHeading } from "@/components/Section";
 import { en } from "@/lib/content.en";
 import { howToJsonLd } from "@/lib/jsonld";
 import { buildMetadata } from "@/lib/metadata";
-import { path, site } from "@/lib/site";
+import { appUrl, path } from "@/lib/site";
 
 export const metadata = buildMetadata("en", "appTesten");
 
@@ -21,7 +21,7 @@ export default function TryTheAppPage() {
             <SectionHeading as="h1" eyebrow={t.eyebrow} title={t.title} lead={t.lead} />
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <CtaExternal href={site.appUrl}>{t.ctaPrimary}</CtaExternal>
+              <CtaExternal href={appUrl.en}>{t.ctaPrimary}</CtaExternal>
               <CtaLink href={path("en", "features")} variant="secondary">
                 {t.ctaSecondary}
               </CtaLink>
@@ -76,7 +76,7 @@ export default function TryTheAppPage() {
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-indigo-100 text-pretty">{t.finalText}</p>
           <div className="mt-6 flex justify-center">
-            <CtaExternal href={site.appUrl} variant="secondary">
+            <CtaExternal href={appUrl.en} variant="secondary">
               {t.finalCta}
             </CtaExternal>
           </div>

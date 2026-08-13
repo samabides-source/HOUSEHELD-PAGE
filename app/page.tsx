@@ -8,7 +8,7 @@ import { Section, SectionHeading } from "@/components/Section";
 import { de } from "@/lib/content.de";
 import { softwareApplicationJsonLd } from "@/lib/jsonld";
 import { buildMetadata } from "@/lib/metadata";
-import { path, site } from "@/lib/site";
+import { appUrl, path } from "@/lib/site";
 
 export const metadata = buildMetadata("de", "home");
 
@@ -34,7 +34,7 @@ export default function HomePage() {
             <p className="mt-5 text-lg text-slate-600 text-pretty">{t.lead}</p>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <CtaExternal href={site.appUrl}>{t.ctaPrimary}</CtaExternal>
+              <CtaExternal href={appUrl.de}>{t.ctaPrimary}</CtaExternal>
               <CtaLink href={path("de", "features")} variant="secondary">
                 {t.ctaSecondary}
               </CtaLink>
@@ -43,7 +43,7 @@ export default function HomePage() {
             <p className="mt-4 text-sm text-slate-500">{t.note}</p>
           </div>
 
-          <AppMockup />
+          <AppMockup locale="de" />
         </div>
       </Section>
 

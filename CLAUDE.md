@@ -52,7 +52,8 @@ components/
   Section.tsx             Section + SectionHeading (Breite, Rhythmus, Überschriften)
   CtaButton.tsx           CtaLink (intern) und CtaExternal (in die App)
   CtaBanner.tsx           Abschluss-Aufruf, nimmt `locale`-Prop
-  FeatureCard.tsx FaqList.tsx PhotoFrame.tsx AppMockup.tsx    Generisch, sprachunabhängig
+  FeatureCard.tsx FaqList.tsx PhotoFrame.tsx    Generisch, sprachunabhängig
+  AppMockup.tsx           Nimmt `locale`-Prop, Texte aus `dictionaries[locale].mockup`
   JsonLd.tsx              Bettet ein JSON-LD-Objekt als <script> ein
 lib/
   site.ts                 Sprachunabhängige Fakten (Name, URLs, Autor) + Routing-Helfer (`path()`)
@@ -79,9 +80,10 @@ gesetzt im Root-Layout, das für beide Sprachbäume gilt). Der englische Teilbau
 `buildMetadata()`, nicht das `html`-Attribut.
 
 Neuen Text ergänzen: **immer in `content.de.ts` UND `content.en.ts`**, an derselben Stelle in der
-Struktur (TypeScript meldet fehlende Felder über `Dictionary` in `content.types.ts`). Die
-Ausnahme ist `AppMockup.tsx`: Sie zeigt bewusst deutsche UI-Texte auf beiden Sprachversionen, weil
-sie die tatsächliche App abbildet – und die App ist (Stand heute) nur auf Deutsch.
+Struktur (TypeScript meldet fehlende Felder über `Dictionary` in `content.types.ts`). Das gilt
+auch für `mockup` in `AppMockup.tsx` – die App ist inzwischen ebenfalls zweisprachig
+(<https://househeld-app.vercel.app/en>), also zeigt das Mockup auf `/en/*` englische Texte.
+Die App-Verlinkung selbst läuft über `appUrl[locale]` (`lib/site.ts`), nie über eine feste URL.
 
 ## Inhalte pflegen
 
@@ -118,8 +120,9 @@ Die Seite darf der App nichts versprechen, was sie nicht kann. Verbindlich sind:
 - Aufgaben brauchen **nur einen Titel**; alles andere ist optional.
 - **Kein Papierkorb** – Löschen ist endgültig und verlangt eine zweite Bestätigung.
 - „dringend“ ist eine **Priorität, kein Tag**.
-- Nicht im Umfang der App: Auth, KI, Push, Mehrsprachigkeit (die App-**Oberfläche** bleibt
-  Deutsch – die Mehrsprachigkeit gilt nur für diese Marketingseite).
+- Nicht im Umfang der App: Auth, KI, Push.
+- Die App ist mittlerweile ebenfalls zweisprachig (Deutsch/Englisch), analog zu dieser
+  Marketingseite: <https://househeld-app.vercel.app/> (DE) und `/en` (EN).
 
 Ändert sich eine dieser Aussagen in der App, gehört die Korrektur in beide Sprachpakete.
 

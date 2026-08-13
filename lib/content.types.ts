@@ -5,6 +5,15 @@ export type FeatureItem = { id: string; icon: string; title: string; text: strin
 export type StepItem = { title: string; text: string };
 export type FaqItem = { question: string; answer: string };
 export type StackItem = { label: string; note: string };
+export type MockupTask = { title: string; priorityLabel: string; tags: string[]; due: string };
+export type MockupContent = {
+  headerLabel: string;
+  newLabel: string;
+  filterOpen: string;
+  filterDone: string;
+  filterAll: string;
+  tasks: MockupTask[];
+};
 
 /**
  * Ein vollständiges Sprachpaket. `content.de.ts` und `content.en.ts` implementieren
@@ -17,6 +26,7 @@ export type Dictionary = {
   description: string;
   nav: NavItem[];
   meta: Record<PageKey, { title: string; description: string }>;
+  mockup: MockupContent;
   home: {
     badge: string;
     h1: string;

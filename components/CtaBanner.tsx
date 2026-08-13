@@ -1,5 +1,5 @@
 import { CtaExternal, CtaLink } from "@/components/CtaButton";
-import { dictionaries, path, site, type Locale } from "@/lib/site";
+import { appUrl, dictionaries, path, type Locale } from "@/lib/site";
 
 /** Abschluss-Aufruf, der auf jeder Unterseite gleich aussieht. */
 export function CtaBanner({
@@ -22,7 +22,7 @@ export function CtaBanner({
         {text ?? dict.cta.defaultText}
       </p>
       <div className="mt-6 flex flex-wrap justify-center gap-3">
-        <CtaExternal href={site.appUrl} variant="secondary">
+        <CtaExternal href={appUrl[locale]} variant="secondary">
           {dict.cta.exploreLabel}
         </CtaExternal>
         <CtaLink

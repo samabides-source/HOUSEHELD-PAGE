@@ -1,9 +1,47 @@
+import { dictionaries, type Locale } from "@/lib/site";
+
 /**
  * Schematische Vorschau einer Aufgabenkarte. Bewusst als Markup statt als
  * Screenshot: bleibt scharf, braucht kein Bild-Asset und ist leicht anpassbar.
  * Sobald echte Screenshots vorliegen, kann diese Komponente ersetzt werden.
+ *
+ * Texte kommen aus `dictionaries[locale].mockup` (die App ist mittlerweile
+ * ebenfalls zweisprachig). Farben, Initialen und Fotoanzahl sind rein visuell
+ * und bleiben unabhängig von der Sprache in `VISUALS`.
  */
-export function AppMockup() {
+const VISUALS = [
+  {
+    accent: "bg-red-500",
+    priorityDot: "bg-red-500",
+    priorityRing: "ring-red-200 text-red-700",
+    tagClasses: ["bg-blue-100 text-blue-800", "bg-amber-100 text-amber-800"],
+    people: [
+      { initials: "SM", className: "bg-violet-500" },
+      { initials: "LK", className: "bg-emerald-500" },
+    ],
+    photos: 2,
+  },
+  {
+    accent: "bg-amber-500",
+    priorityDot: "bg-amber-500",
+    priorityRing: "ring-amber-200 text-amber-700",
+    tagClasses: ["bg-blue-100 text-blue-800", "bg-violet-100 text-violet-800"],
+    people: [{ initials: "TB", className: "bg-sky-500" }],
+    photos: 3,
+  },
+  {
+    accent: "bg-slate-300",
+    priorityDot: "bg-slate-400",
+    priorityRing: "ring-slate-200 text-slate-600",
+    tagClasses: ["bg-emerald-100 text-emerald-800"],
+    people: [{ initials: "AR", className: "bg-pink-500" }],
+    photos: 1,
+  },
+] as const;
+
+export function AppMockup({ locale }: { locale: Locale }) {
+  const t = dictionaries[locale].mockup;
+
   return (
     <div
       aria-hidden
@@ -13,61 +51,43 @@ export function AppMockup() {
         <span className="flex size-7 items-center justify-center rounded-lg bg-indigo-600 text-xs text-white">
           🏠
         </span>
-        <span className="text-sm font-extrabold tracking-tight">Alle Aufgaben</span>
+        <span className="text-sm font-extrabold tracking-tight">{t.headerLabel}</span>
         <span className="ml-auto rounded-full bg-indigo-600 px-3 py-1 text-xs font-extrabold text-white">
-          Neu
+          {t.newLabel}
         </span>
       </div>
 
       <div className="flex gap-2 py-3">
         <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
-          Offen
+          {t.filterOpen}
         </span>
         <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-500">
-          Erledigt
+          {t.filterDone}
         </span>
         <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-500">
-          Alle
+          {t.filterAll}
         </span>
       </div>
 
       <div className="space-y-3">
-        <MockCard
-          accent="bg-red-500"
-          title="Küchenboden wischen"
-          priority={{ label: "dringend", dot: "bg-red-500", ring: "ring-red-200 text-red-700" }}
-          tags={[
-            { label: "Küche", className: "bg-blue-100 text-blue-800" },
-            { label: "Putzen", className: "bg-amber-100 text-amber-800" },
-          ]}
-          people={[
-            { initials: "SM", className: "bg-violet-500" },
-            { initials: "LK", className: "bg-emerald-500" },
-          ]}
-          photos={2}
-          due="Heute"
-        />
-        <MockCard
-          accent="bg-amber-500"
-          title="Filter der Waschmaschine reinigen"
-          priority={{ label: "mittel", dot: "bg-amber-500", ring: "ring-amber-200 text-amber-700" }}
-          tags={[
-            { label: "Keller", className: "bg-blue-100 text-blue-800" },
-            { label: "Technik", className: "bg-violet-100 text-violet-800" },
-          ]}
-          people={[{ initials: "TB", className: "bg-sky-500" }]}
-          photos={3}
-          due="Fr, 14.8."
-        />
-        <MockCard
-          accent="bg-slate-300"
-          title="Balkonpflanzen giessen"
-          priority={{ label: "niedrig", dot: "bg-slate-400", ring: "ring-slate-200 text-slate-600" }}
-          tags={[{ label: "Aussenbereich", className: "bg-emerald-100 text-emerald-800" }]}
-          people={[{ initials: "AR", className: "bg-pink-500" }]}
-          photos={1}
-          due="Sa, 15.8."
-        />
+        {t.tasks.map((task, index) => {
+          const v = VISUALS[index];
+          return (
+            <MockCard
+              key={task.title}
+              accent={v.accent}
+              title={task.title}
+              priority={{ label: task.priorityLabel, dot: v.priorityDot, ring: v.priorityRing }}
+              tags={task.tags.map((label, tagIndex) => ({
+                label,
+                className: v.tagClasses[tagIndex],
+              }))}
+              people={v.people}
+              photos={v.photos}
+              due={task.due}
+            />
+          );
+        })}
       </div>
     </div>
   );
@@ -77,8 +97,8 @@ type MockCardProps = {
   accent: string;
   title: string;
   priority: { label: string; dot: string; ring: string };
-  tags: Array<{ label: string; className: string }>;
-  people: Array<{ initials: string; className: string }>;
+  tags: readonly { label: string; className: string }[];
+  people: readonly { initials: string; className: string }[];
   photos: number;
   due: string;
 };

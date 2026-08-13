@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { dictionaries, path, site } from "@/lib/site";
+import { appUrl, dictionaries, path, site } from "@/lib/site";
 
 export function SiteFooter() {
   const pathname = usePathname();
@@ -40,7 +40,7 @@ export function SiteFooter() {
             </Link>
           ))}
           <a
-            href={site.appUrl}
+            href={appUrl[locale]}
             className="font-semibold text-indigo-700 transition hover:text-indigo-900"
             target="_blank"
             rel="noreferrer"

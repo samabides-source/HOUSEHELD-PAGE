@@ -17,6 +17,33 @@ export const de: Dictionary = {
     { page: "about", label: "About" },
     { page: "appTesten", label: "App testen" },
   ],
+  mockup: {
+    headerLabel: "Alle Aufgaben",
+    newLabel: "Neu",
+    filterOpen: "Offen",
+    filterDone: "Erledigt",
+    filterAll: "Alle",
+    tasks: [
+      {
+        title: "Küchenboden wischen",
+        priorityLabel: "dringend",
+        tags: ["Küche", "Putzen"],
+        due: "Heute",
+      },
+      {
+        title: "Filter der Waschmaschine reinigen",
+        priorityLabel: "mittel",
+        tags: ["Keller", "Technik"],
+        due: "Fr, 14.8.",
+      },
+      {
+        title: "Balkonpflanzen giessen",
+        priorityLabel: "niedrig",
+        tags: ["Aussenbereich"],
+        due: "Sa, 15.8.",
+      },
+    ],
+  },
   meta: {
     home: {
       title: "Hausheld – Haushaltsaufgaben im Griff",

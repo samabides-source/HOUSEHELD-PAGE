@@ -10,8 +10,6 @@ export const site = {
   name: "Hausheld",
   /** URL dieser Marketingseite (für Metadaten, Sitemap, JSON-LD). */
   url: "https://hausheld-page.vercel.app",
-  /** Die produktive Web-App. */
-  appUrl: "https://househeld-app.vercel.app/",
   author: "Sandro Müntener",
   contactEmail: "samabides@gmail.com",
   context: "CAS AIMP – Modul «Viben und Coden», FS26",
@@ -20,6 +18,12 @@ export const site = {
 export const locales = ["de", "en"] as const;
 export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = "de";
+
+/** Die produktive Web-App – jede Sprache hat ihre eigene URL. */
+export const appUrl: Record<Locale, string> = {
+  de: "https://househeld-app.vercel.app/",
+  en: "https://househeld-app.vercel.app/en",
+};
 
 export const dictionaries: Record<Locale, Dictionary> = { de, en };
 
