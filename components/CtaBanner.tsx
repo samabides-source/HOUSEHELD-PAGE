@@ -1,30 +1,36 @@
 import { CtaExternal, CtaLink } from "@/components/CtaButton";
-import { site } from "@/lib/site";
+import { dictionaries, path, site, type Locale } from "@/lib/site";
 
 /** Abschluss-Aufruf, der auf jeder Unterseite gleich aussieht. */
 export function CtaBanner({
-  title = "Bereit für einen aufgeräumten Haushalt?",
-  text = "Hausheld startet ohne Konto und ohne Installation – direkt im Browser.",
+  locale,
+  title,
+  text,
 }: {
+  locale: Locale;
   title?: string;
   text?: string;
 }) {
+  const dict = dictionaries[locale];
+
   return (
     <div className="rounded-2xl bg-indigo-600 px-6 py-10 text-center sm:px-12">
       <h2 className="text-2xl font-extrabold tracking-tight text-white text-balance sm:text-3xl">
-        {title}
+        {title ?? dict.cta.defaultTitle}
       </h2>
-      <p className="mx-auto mt-3 max-w-xl text-indigo-100 text-pretty">{text}</p>
+      <p className="mx-auto mt-3 max-w-xl text-indigo-100 text-pretty">
+        {text ?? dict.cta.defaultText}
+      </p>
       <div className="mt-6 flex flex-wrap justify-center gap-3">
         <CtaExternal href={site.appUrl} variant="secondary">
-          App öffnen ↗
+          {dict.cta.exploreLabel}
         </CtaExternal>
         <CtaLink
-          href="/app-testen"
+          href={path(locale, "appTesten")}
           variant="primary"
           className="bg-indigo-500 ring-1 ring-inset ring-indigo-400 hover:bg-indigo-400"
         >
-          So testest du
+          {dict.cta.secondaryLabel}
         </CtaLink>
       </div>
     </div>

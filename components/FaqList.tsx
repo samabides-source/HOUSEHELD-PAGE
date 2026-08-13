@@ -1,10 +1,10 @@
-import type { Faq } from "@/lib/content";
+import type { FaqItem } from "@/lib/content.types";
 
 /**
  * Akkordeon auf Basis von <details>/<summary> – funktioniert ohne JavaScript
  * und ist damit auch ohne Client-Komponente bedienbar.
  */
-export function FaqList({ items }: { items: Faq[] }) {
+export function FaqList({ items }: { items: FaqItem[] }) {
   return (
     <div className="space-y-3">
       {items.map((item) => (

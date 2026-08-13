@@ -5,19 +5,19 @@ import { FeatureCard } from "@/components/FeatureCard";
 import { JsonLd } from "@/components/JsonLd";
 import { PhotoFrame } from "@/components/PhotoFrame";
 import { Section, SectionHeading } from "@/components/Section";
-import { de } from "@/lib/content.de";
+import { en } from "@/lib/content.en";
 import { softwareApplicationJsonLd } from "@/lib/jsonld";
 import { buildMetadata } from "@/lib/metadata";
 import { path, site } from "@/lib/site";
 
-export const metadata = buildMetadata("de", "home");
+export const metadata = buildMetadata("en", "home");
 
 export default function HomePage() {
-  const t = de.home;
+  const t = en.home;
 
   return (
     <>
-      <JsonLd data={softwareApplicationJsonLd("de", de)} />
+      <JsonLd data={softwareApplicationJsonLd("en", en)} />
 
       {/* Hero */}
       <Section className="pt-10 sm:pt-16">
@@ -35,7 +35,7 @@ export default function HomePage() {
 
             <div className="mt-8 flex flex-wrap gap-3">
               <CtaExternal href={site.appUrl}>{t.ctaPrimary}</CtaExternal>
-              <CtaLink href={path("de", "features")} variant="secondary">
+              <CtaLink href={path("en", "features")} variant="secondary">
                 {t.ctaSecondary}
               </CtaLink>
             </div>
@@ -95,13 +95,13 @@ export default function HomePage() {
         </div>
 
         <div className="mt-8 text-center">
-          <CtaLink href={path("de", "features")} variant="secondary">
+          <CtaLink href={path("en", "features")} variant="secondary">
             {t.allFeaturesCta}
           </CtaLink>
         </div>
       </Section>
 
-      {/* So funktioniert's */}
+      {/* How it works */}
       <Section>
         <SectionHeading eyebrow={t.stepsEyebrow} title={t.stepsTitle} centered />
 
@@ -119,7 +119,7 @@ export default function HomePage() {
       </Section>
 
       <Section className="pb-16 sm:pb-24">
-        <CtaBanner locale="de" />
+        <CtaBanner locale="en" />
       </Section>
     </>
   );

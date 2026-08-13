@@ -1,10 +1,10 @@
 import { CtaLink } from "@/components/CtaButton";
 import { Section } from "@/components/Section";
-import { de } from "@/lib/content.de";
+import { en } from "@/lib/content.en";
 import { path } from "@/lib/site";
 
 export default function NotFound() {
-  const t = de.notFound;
+  const t = en.notFound;
 
   return (
     <Section className="py-24 text-center">
@@ -12,7 +12,7 @@ export default function NotFound() {
       <h1 className="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">{t.title}</h1>
       <p className="mx-auto mt-4 max-w-md text-slate-600">{t.text}</p>
       <div className="mt-8 flex justify-center">
-        <CtaLink href={path("de", "home")}>{t.cta}</CtaLink>
+        <CtaLink href={path("en", "home")}>{t.cta}</CtaLink>
       </div>
     </Section>
   );

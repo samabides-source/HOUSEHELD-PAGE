@@ -1,6 +1,6 @@
-import type { Feature } from "@/lib/content";
+import type { FeatureItem } from "@/lib/content.types";
 
-export function FeatureCard({ feature }: { feature: Feature }) {
+export function FeatureCard({ feature }: { feature: FeatureItem }) {
   return (
     <article className="rounded-2xl bg-white p-6 ring-1 ring-slate-200/80">
       <span

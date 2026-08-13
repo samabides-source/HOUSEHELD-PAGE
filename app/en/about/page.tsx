@@ -1,13 +1,13 @@
 import { CtaBanner } from "@/components/CtaBanner";
 import { Section, SectionHeading } from "@/components/Section";
-import { de } from "@/lib/content.de";
+import { en } from "@/lib/content.en";
 import { buildMetadata } from "@/lib/metadata";
 import { site } from "@/lib/site";
 
-export const metadata = buildMetadata("de", "about");
+export const metadata = buildMetadata("en", "about");
 
 export default function AboutPage() {
-  const t = de.about;
+  const t = en.about;
 
   return (
     <>
@@ -93,7 +93,7 @@ export default function AboutPage() {
       </Section>
 
       <Section className="pb-16 sm:pb-24">
-        <CtaBanner locale="de" title={t.ctaTitle} text={t.ctaText} />
+        <CtaBanner locale="en" title={t.ctaTitle} text={t.ctaText} />
       </Section>
     </>
   );

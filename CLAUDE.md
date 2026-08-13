@@ -25,52 +25,87 @@ npm run typecheck
 npm run lint
 ```
 
-Sprache in Inhalten, Kommentaren und Commit-Messages: **Deutsch** (Schweizer Schreibweise, „ss“
-statt „ß“).
+Kommentare und Commit-Messages: **Deutsch** (Schweizer Schreibweise, „ss“ statt „ß“). Der
+Seiteninhalt selbst ist zweisprachig – siehe „Mehrsprachigkeit“ unten.
 
 ## Architektur
 
 Next.js 15 (App Router) + React 19 + Tailwind CSS v4 + TypeScript – derselbe Stack wie die App.
 **Kein Server-Code, keine API-Routen, keine Datenbank.** Alle Seiten sind statische
-Server-Komponenten; die einzige Client-Komponente ist der Header, weil er `usePathname()` für den
-aktiven Navigationszustand braucht.
+Server-Komponenten; Client-Komponenten sind nur `SiteHeader` und `SiteFooter`, weil sie
+`usePathname()` für aktiven Navigationszustand und Spracherkennung brauchen.
 
 ```
 app/
-  layout.tsx            Header + Footer, globale Metadaten
-  page.tsx              Home (Hero, Problem/Lösung, Highlights, Ablauf, CTA)
-  features/             Alle Funktionen + „Bewusst nicht dabei“
-  faq/                  Häufige Fragen
-  about/                Hintergrund, Technik, Kontakt
-  app-testen/           Anleitung zum Ausprobieren, Links in die App
-  not-found.tsx         404
-  sitemap.ts robots.ts  SEO-Basis
+  layout.tsx             Root-Layout: <html lang="de-CH">, Header + Footer, globale Metadaten
+  page.tsx features/ faq/ about/ app-testen/    Deutsche Seiten (Standard, kein Präfix)
+  en/                     Englische Seiten, gespiegelte Struktur
+    layout.tsx            Setzt <div lang="en"> um den Teilbaum (siehe „Mehrsprachigkeit“)
+    page.tsx features/ faq/ about/ try-the-app/
+  not-found.tsx           404 (Deutsch) · en/not-found.tsx (Englisch)
+  sitemap.ts robots.ts    SEO-Basis, beide Sprachen inkl. hreflang
+  opengraph-image.tsx apple-icon.tsx    Dynamisch generiert (next/og)
+  en/opengraph-image.tsx  Englische Variante des OG-Bilds
 components/
-  SiteHeader.tsx        Sticky-Header ("use client")
-  SiteFooter.tsx        Footer mit Navigation
-  Section.tsx           Section + SectionHeading (Breite, Rhythmus, Überschriften)
-  CtaButton.tsx         CtaLink (intern) und CtaExternal (in die App)
-  CtaBanner.tsx         Abschluss-Aufruf, auf jeder Seite identisch
-  FeatureCard.tsx       Karte für einen Feature-Eintrag
-  FaqList.tsx           Akkordeon auf <details>/<summary>, ohne JavaScript
-  AppMockup.tsx         Schematische Aufgabenkarte als Hero-Visual
+  SiteHeader.tsx          Sticky-Header ("use client"), inkl. Sprachumschalter
+  SiteFooter.tsx          Footer mit Navigation ("use client", braucht usePathname)
+  Section.tsx             Section + SectionHeading (Breite, Rhythmus, Überschriften)
+  CtaButton.tsx           CtaLink (intern) und CtaExternal (in die App)
+  CtaBanner.tsx           Abschluss-Aufruf, nimmt `locale`-Prop
+  FeatureCard.tsx FaqList.tsx PhotoFrame.tsx AppMockup.tsx    Generisch, sprachunabhängig
+  JsonLd.tsx              Bettet ein JSON-LD-Objekt als <script> ein
 lib/
-  site.ts               Name, Claim, URLs, Autor, Navigation
-  content.ts            Alle Texte: highlights, features, steps, faqs
-  utils.ts              cn()
+  site.ts                 Sprachunabhängige Fakten (Name, URLs, Autor) + Routing-Helfer (`path()`)
+  content.types.ts        TypeScript-Typ für ein vollständiges Sprachpaket
+  content.de.ts content.en.ts    Alle Texte, je Sprache eine Datei, identische Struktur
+  metadata.ts             `buildMetadata(locale, page)` – Title/Description/Canonical/hreflang
+  jsonld.ts                Generatoren für SoftwareApplication-, FAQPage- und HowTo-Schema
+  utils.ts                 cn()
+public/
+  llms.txt                 Maschinenlesbare Zusammenfassung für LLM-Crawler (GEO)
 ```
+
+## Mehrsprachigkeit (DE Standard, EN unter /en)
+
+Deutsch liegt an der Wurzel (`/`, `/features`, …) ohne Präfix, Englisch unter `/en/*`. Die
+Slugs sind meist identisch (Anglizismen wie „Features“/„FAQ“), nur `app-testen` → `en/try-the-app`
+weicht ab. Diese Zuordnung steht ausschliesslich in `slugs` (`lib/site.ts`) – niemals Pfade von
+Hand zusammensetzen, immer `path(locale, "appTesten")` verwenden.
+
+**`<html lang>` ist technisch bedingt immer `de-CH`** (Next.js erlaubt nur ein `<html>`-Element,
+gesetzt im Root-Layout, das für beide Sprachbäume gilt). Der englische Teilbaum bekommt sein
+`lang="en"` stattdessen auf einem `<div>` in `app/en/layout.tsx` – das ist für Screenreader und
+Übersetzungstools ausreichend. Für Suchmaschinen zählen ohnehin primär die `hreflang`-Angaben aus
+`buildMetadata()`, nicht das `html`-Attribut.
+
+Neuen Text ergänzen: **immer in `content.de.ts` UND `content.en.ts`**, an derselben Stelle in der
+Struktur (TypeScript meldet fehlende Felder über `Dictionary` in `content.types.ts`). Die
+Ausnahme ist `AppMockup.tsx`: Sie zeigt bewusst deutsche UI-Texte auf beiden Sprachversionen, weil
+sie die tatsächliche App abbildet – und die App ist (Stand heute) nur auf Deutsch.
 
 ## Inhalte pflegen
 
-**Texte gehören nach `lib/content.ts`, nicht in die Seiten.** Ein neues Feature ist ein neuer
-Eintrag im Array `features`, eine neue Frage ein Eintrag in `faqs` – die Seiten rendern nur, was
-dort steht. Name, Claim und die URL der App stehen ausschliesslich in `lib/site.ts`.
+**Texte gehören in `content.de.ts`/`content.en.ts`, nicht in die Seiten.** Ein neues Feature ist
+ein neuer Eintrag in `features.items` (in beiden Dateien), eine neue Frage ein Eintrag in
+`faq.items` – die Seiten rendern nur, was dort steht. Name, Autor und die URL der App stehen in
+`lib/site.ts`.
 
-Neue Seite anlegen: Ordner unter `app/` erstellen **und** den Eintrag in `nav` (`lib/site.ts`)
-ergänzen – Header, Footer und Sitemap ziehen ihre Einträge von dort.
+Neue Seite anlegen: `PageKey` in `content.types.ts` erweitern, Eintrag in `slugs` (`lib/site.ts`),
+Texte in beiden Sprachpaketen ergänzen, dann je einen Ordner unter `app/` und `app/en/` anlegen.
 
-Jede Seite exportiert `metadata` mit `title` (nur der kurze Name, das Template in `layout.tsx`
-hängt „· Hausheld“ an) und einer eigenen `description`.
+Jede Seite ruft `buildMetadata(locale, page)` für ihre `metadata` auf – das erzeugt Title,
+Description, Canonical und hreflang-Alternates konsistent aus dem Sprachpaket.
+
+## Strukturierte Daten (JSON-LD)
+
+- **Home**: `SoftwareApplication` (Name, Beschreibung, Autor, Preis) – hilft SEO/GEO, Hausheld
+  korrekt als kostenlose Web-App zu erkennen.
+- **FAQ**: `FAQPage`, generiert direkt aus `faq.items` – Voraussetzung für Rich Snippets und
+  eine zuverlässige Quelle für Answer-Engines.
+- **App testen**: `HowTo`, generiert aus `appTesten.walkthrough`.
+
+Alle drei über `lib/jsonld.ts` und die `<JsonLd data={...} />`-Komponente eingebunden. Neue
+strukturierte Daten immer aus dem Sprachpaket ableiten, nie Text duplizieren.
 
 ## Faktentreue
 
@@ -83,9 +118,10 @@ Die Seite darf der App nichts versprechen, was sie nicht kann. Verbindlich sind:
 - Aufgaben brauchen **nur einen Titel**; alles andere ist optional.
 - **Kein Papierkorb** – Löschen ist endgültig und verlangt eine zweite Bestätigung.
 - „dringend“ ist eine **Priorität, kein Tag**.
-- Nicht im Umfang der App: Auth, KI, Push, Mehrsprachigkeit.
+- Nicht im Umfang der App: Auth, KI, Push, Mehrsprachigkeit (die App-**Oberfläche** bleibt
+  Deutsch – die Mehrsprachigkeit gilt nur für diese Marketingseite).
 
-Ändert sich eine dieser Aussagen in der App, gehört die Korrektur in `lib/content.ts`.
+Ändert sich eine dieser Aussagen in der App, gehört die Korrektur in beide Sprachpakete.
 
 ## Design-Regeln
 
@@ -102,7 +138,8 @@ Die Seite übernimmt bewusst die visuelle Sprache der App, damit der Übergang n
 | Breite | `max-w-6xl` über `<Section>`, Fliesstext `max-w-2xl`/`max-w-3xl` |
 
 Bewusst **keine Google-Font** und keine externen Assets – der Build funktioniert ohne
-Netzwerkzugriff, und es werden keine Daten an Dritte übertragen.
+Netzwerkzugriff, und es werden keine Daten an Dritte übertragen. (Die Foto-Assets unter
+`public/images/` sind Ausnahmen mit eigener Lizenzdokumentation, siehe unten.)
 
 Tailwind-Klassen immer als **vollständige Klassennamen** schreiben (auch in Props), niemals
 dynamisch zusammensetzen – `bg-${x}-100` findet der Scanner nicht.
@@ -110,27 +147,32 @@ dynamisch zusammensetzen – `bg-${x}-100` findet der Scanner nicht.
 ## Konventionen
 
 - Server-Komponenten sind der Standard. `"use client"` nur, wenn eine Komponente wirklich
-  Interaktivität braucht (aktuell nur `SiteHeader`).
+  Interaktivität oder `usePathname()` braucht (`SiteHeader`, `SiteFooter`).
 - Imports über den Alias `@/` (siehe `tsconfig.json`).
-- Interne Links immer über `next/link`, externe über `<a target="_blank" rel="noreferrer">`
-  bzw. `CtaExternal`.
+- Interne Links immer über `next/link` und `path(locale, page)`, externe über
+  `<a target="_blank" rel="noreferrer">` bzw. `CtaExternal`.
 - Interaktive Muster nach Möglichkeit ohne JavaScript lösen (siehe `FaqList` mit `<details>`).
 - Abschnitte immer in `<Section>` wickeln, damit Breite und Abstände einheitlich bleiben.
+- Kein `middleware.ts` – die Sprachumschaltung läuft rein über Next.js-Routing (Ordnerstruktur),
+  nicht über Rewrites/Redirects auf Server-Ebene. Passt zum Grundsatz „kein Server-Code“.
 
 ## Deployment
 
 Vercel, Framework-Preset „Next.js“, keine Umgebungsvariablen, kein Build-Override nötig. Nach dem
 ersten Deployment die produktive Domain in `site.url` (`lib/site.ts`) eintragen – davon hängen
-Metadaten, Sitemap und `robots.txt` ab.
+Metadaten, Sitemap, `robots.txt`, JSON-LD-URLs und die OG-Bilder ab.
 
 ## Offene Punkte
 
 - `AppMockup` ist eine nachgebaute Karte, kein Screenshot. Sobald echte Screenshots der App
   vorliegen, kann die Komponente ersetzt werden.
+- `dateModified` in `lib/jsonld.ts` ist aktuell hart auf `"2026-08"` gesetzt – bei grösseren
+  inhaltlichen Änderungen nachziehen.
 
 ## Fotos (Home/Features)
 
-Home und Features enthalten je 1–2 gemeinfreie Fotos (CC0, über Openverse recherchiert) unter
-`public/images/`. Lokal eingebunden statt verlinkt, damit der Build ohne Netzwerkzugriff
-funktioniert – dieselbe Regel wie bei Schriften und sonstigen Assets. Quelle und Lizenz stehen
-in `public/images/CREDITS.md`.
+Home und Features enthalten je 1 Foto unter `public/images/`. Lokal eingebunden statt verlinkt,
+damit der Build ohne Netzwerkzugriff funktioniert. Die beiden Fotos haben **unterschiedliche
+Lizenzen** (eines CC0/gemeinfrei, eines Pexels-Lizenz) – Quelle und genaue Lizenz stehen in
+`public/images/CREDITS.md`, dort unbedingt nachsehen, bevor ein Foto ersetzt oder ein neues
+ergänzt wird.

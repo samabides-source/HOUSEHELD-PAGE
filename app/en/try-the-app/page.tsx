@@ -1,19 +1,19 @@
 import { CtaExternal, CtaLink } from "@/components/CtaButton";
 import { JsonLd } from "@/components/JsonLd";
 import { Section, SectionHeading } from "@/components/Section";
-import { de } from "@/lib/content.de";
+import { en } from "@/lib/content.en";
 import { howToJsonLd } from "@/lib/jsonld";
 import { buildMetadata } from "@/lib/metadata";
 import { path, site } from "@/lib/site";
 
-export const metadata = buildMetadata("de", "appTesten");
+export const metadata = buildMetadata("en", "appTesten");
 
-export default function AppTestenPage() {
-  const t = de.appTesten;
+export default function TryTheAppPage() {
+  const t = en.appTesten;
 
   return (
     <>
-      <JsonLd data={howToJsonLd("de", de)} />
+      <JsonLd data={howToJsonLd("en", en)} />
 
       <Section className="pt-10 sm:pt-16">
         <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
@@ -22,7 +22,7 @@ export default function AppTestenPage() {
 
             <div className="mt-8 flex flex-wrap gap-3">
               <CtaExternal href={site.appUrl}>{t.ctaPrimary}</CtaExternal>
-              <CtaLink href={path("de", "features")} variant="secondary">
+              <CtaLink href={path("en", "features")} variant="secondary">
                 {t.ctaSecondary}
               </CtaLink>
             </div>

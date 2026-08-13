@@ -11,14 +11,10 @@ export const metadata: Metadata = {
     default: `${site.name} – Haushaltsaufgaben im Griff`,
     template: `%s · ${site.name}`,
   },
-  description: site.description,
-  openGraph: {
-    type: "website",
-    locale: "de_CH",
-    siteName: site.name,
-    title: `${site.name} – Haushaltsaufgaben im Griff`,
-    description: site.description,
-    url: site.url,
+  description:
+    "Hausheld ist ein Haushaltsaufgaben-Tracker für Familien und WGs: Aufgaben mit Fotos dokumentieren, Personen zuweisen, mit Tags kategorisieren.",
+  twitter: {
+    card: "summary_large_image",
   },
 };
 
@@ -28,7 +24,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="de">
+    <html lang="de-CH">
       <body className="flex min-h-dvh flex-col">
         <SiteHeader />
         <main className="flex-1">{children}</main>

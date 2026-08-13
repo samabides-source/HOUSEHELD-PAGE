@@ -1,0 +1,30 @@
+# Hausheld
+
+> Hausheld is a free household chore tracker for families and shared flats (WGs). Tasks can be documented with photos, assigned to one or more people, and organised with tags. There is no login, no account and no cloud: all data, including photos, is stored locally in the browser (IndexedDB). Hausheld is a student project built for the CAS module "Viben und Coden" (Switzerland).
+
+Key facts:
+- Price: free, no ads, no paid tiers.
+- Account: none required. The app opens and is immediately usable.
+- Data storage: browser only (IndexedDB). No server, no cloud, no data transfer to third parties.
+- Cross-device sync: not yet available. Data is local to the browser/device it was entered on. Sync with a database is in development.
+- Tasks: only a title is required. Due date, priority, assignees, tags and photos are optional.
+- Photos: up to 10 per task, up to 10 MB per file. Resized to 1600px and compressed as WebP on upload.
+- Deletion: no trash bin. Deleting a task is permanent and requires a second confirmation click.
+- Priority levels: low, medium, urgent ("dringend" is a priority, not a tag).
+- Not in scope: user authentication/accounts, AI features, push notifications, multi-language app UI (the app itself is German-only; this marketing site is bilingual).
+- Author: Sandro Müntener. Context: CAS AIMP, module "Viben und Coden", FS26, Switzerland.
+- The web app is a separate product from this marketing site: https://househeld-app.vercel.app/
+
+Pages on this site:
+- Home (German): /
+- Home (English): /en
+- Features (German): /features — full feature list
+- Features (English): /en/features
+- FAQ (German): /faq — structured Q&A, also available as FAQPage schema.org markup
+- FAQ (English): /en/faq
+- About (German): /about — background, tech stack, contact
+- About (English): /en/about
+- Try the app (German): /app-testen — step-by-step walkthrough, also available as HowTo schema.org markup
+- Try the app (English): /en/try-the-app
+
+This site does not use tracking, analytics or advertising. Content on every page is static and safe to crawl and cite.

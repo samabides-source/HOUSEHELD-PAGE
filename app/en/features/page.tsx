@@ -2,13 +2,13 @@ import { CtaBanner } from "@/components/CtaBanner";
 import { FeatureCard } from "@/components/FeatureCard";
 import { PhotoFrame } from "@/components/PhotoFrame";
 import { Section, SectionHeading } from "@/components/Section";
-import { de } from "@/lib/content.de";
+import { en } from "@/lib/content.en";
 import { buildMetadata } from "@/lib/metadata";
 
-export const metadata = buildMetadata("de", "features");
+export const metadata = buildMetadata("en", "features");
 
 export default function FeaturesPage() {
-  const t = de.features;
+  const t = en.features;
 
   return (
     <>
@@ -35,7 +35,6 @@ export default function FeaturesPage() {
         </div>
       </Section>
 
-      {/* Bewusste Grenzen – schafft Vertrauen und verhindert falsche Erwartungen. */}
       <Section className="pt-0">
         <div className="rounded-2xl bg-white px-6 py-8 ring-1 ring-slate-200/80 sm:px-10">
           <h2 className="text-xl font-extrabold tracking-tight">{t.notIncludedTitle}</h2>
@@ -44,7 +43,7 @@ export default function FeaturesPage() {
       </Section>
 
       <Section className="pb-16 sm:pb-24">
-        <CtaBanner locale="de" title={t.ctaTitle} text={t.ctaText} />
+        <CtaBanner locale="en" title={t.ctaTitle} text={t.ctaText} />
       </Section>
     </>
   );
