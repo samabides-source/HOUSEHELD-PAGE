@@ -1,6 +1,6 @@
-# Hausheld
+# Househeld
 
-> Hausheld is a free household chore tracker for families and shared flats (WGs). Tasks can be documented with photos, assigned to one or more people, and organised with tags. There is no login, no account and no cloud: all data, including photos, is stored locally in the browser (IndexedDB). Hausheld is a student project built for the CAS module "Viben und Coden" (Switzerland).
+> Househeld is a free household chore tracker for families and shared flats (WGs). Tasks can be documented with photos, assigned to one or more people, and organised with tags. There is no login, no account and no cloud: all data, including photos, is stored locally in the browser (IndexedDB). Househeld is a student project built for the CAS module "Viben und Coden" (Switzerland).
 
 Key facts:
 - Price: free, no ads, no paid tiers.
@@ -16,7 +16,7 @@ Key facts:
 
 ## Pages (German)
 
-- [Home](https://househeld-page.vercel.app/): what Hausheld is and who it's for
+- [Home](https://househeld-page.vercel.app/): what Househeld is and who it's for
 - [Features](https://househeld-page.vercel.app/features): full feature list
 - [FAQ](https://househeld-page.vercel.app/faq): structured Q&A, also available as FAQPage schema.org markup
 - [About](https://househeld-page.vercel.app/about): background, tech stack, contact
@@ -24,7 +24,7 @@ Key facts:
 
 ## Pages (English)
 
-- [Home](https://househeld-page.vercel.app/en): what Hausheld is and who it's for
+- [Home](https://househeld-page.vercel.app/en): what Househeld is and who it's for
 - [Features](https://househeld-page.vercel.app/en/features): full feature list
 - [FAQ](https://househeld-page.vercel.app/en/faq): structured Q&A, also available as FAQPage schema.org markup
 - [About](https://househeld-page.vercel.app/en/about): background, tech stack, contact
@@ -32,6 +32,6 @@ Key facts:
 
 ## Optional
 
-- [The Hausheld web app](https://househeld-app.vercel.app/): the actual product (separate from this marketing site), German and English
+- [The Househeld web app](https://househeld-app.vercel.app/): the actual product (separate from this marketing site), German and English
 
 This site does not use tracking, analytics or advertising. Content on every page is static and safe to crawl and cite.

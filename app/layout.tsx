@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: `%s · ${site.name}`,
   },
   description:
-    "Hausheld ist ein Haushaltsaufgaben-Tracker für Familien und WGs: Aufgaben mit Fotos dokumentieren, Personen zuweisen, mit Tags kategorisieren.",
+    "Househeld ist ein Haushaltsaufgaben-Tracker für Familien und WGs: Aufgaben mit Fotos dokumentieren, Personen zuweisen, mit Tags kategorisieren.",
   twitter: {
     card: "summary_large_image",
   },

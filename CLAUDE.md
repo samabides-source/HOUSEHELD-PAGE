@@ -1,7 +1,7 @@
 # CLAUDE.md
 
-Leitfaden für die Arbeit an der **Marketingseite von Hausheld** – der öffentlichen Website zur
-Web-App «Hausheld» (Übungsprojekt, Modul „Viben und Coden“).
+Leitfaden für die Arbeit an der **Marketingseite von Househeld** – der öffentlichen Website zur
+Web-App «Househeld» (Übungsprojekt, Modul „Viben und Coden“).
 
 **Wichtig: Dieses Repository enthält nicht die App selbst.** Die App liegt in einem eigenen
 Projekt (`HOUSEHELD-APP`) und ist unter <https://househeld-app.vercel.app/> erreichbar. Hier
@@ -100,7 +100,7 @@ Description, Canonical und hreflang-Alternates konsistent aus dem Sprachpaket.
 
 ## Strukturierte Daten (JSON-LD)
 
-- **Home**: `SoftwareApplication` (Name, Beschreibung, Autor, Preis) – hilft SEO/GEO, Hausheld
+- **Home**: `SoftwareApplication` (Name, Beschreibung, Autor, Preis) – hilft SEO/GEO, Househeld
   korrekt als kostenlose Web-App zu erkennen.
 - **FAQ**: `FAQPage`, generiert direkt aus `faq.items` – Voraussetzung für Rich Snippets und
   eine zuverlässige Quelle für Answer-Engines.

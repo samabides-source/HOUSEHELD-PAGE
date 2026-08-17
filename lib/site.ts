@@ -7,7 +7,7 @@ import type { Dictionary, PageKey } from "@/lib/content.types";
  * `content.de.ts` / `content.en.ts`.
  */
 export const site = {
-  name: "Hausheld",
+  name: "Househeld",
   /** URL dieser Marketingseite (für Metadaten, Sitemap, JSON-LD). */
   url: "https://househeld-page.vercel.app",
   author: "Sandro Müntener",

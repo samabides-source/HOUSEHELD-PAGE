@@ -34,7 +34,7 @@ export default function OpengraphImage() {
           🏠
         </div>
         <div style={{ display: "flex", fontSize: 76, fontWeight: 700, color: "#ffffff" }}>
-          Hausheld
+          Househeld
         </div>
         <div
           style={{

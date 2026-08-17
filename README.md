@@ -61,7 +61,7 @@ KI-Test).
 - [x] `Google-Extended` nicht vorsorglich gesperrt
 
 **B. Content-Struktur**
-- [x] Direkte Antwort in den ersten Sätzen (Home-Lead umformuliert: startet jetzt mit „Hausheld
+- [x] Direkte Antwort in den ersten Sätzen (Home-Lead umformuliert: startet jetzt mit „Househeld
       ist ein kostenloser Haushaltsaufgaben-Tracker für Familien und WGs“ statt einer Frage)
 - [x] Produktname, Kategorie und Zweck **ausgeschrieben im sichtbaren Text** (stand vorher nur in
       Meta-Description und JSON-LD – jetzt auch auf Home und About)

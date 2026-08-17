@@ -9,7 +9,7 @@ export const de: Dictionary = {
   ogLocale: "de_CH",
   claim: "Haushaltsaufgaben für Familien und WGs an einem Ort.",
   description:
-    "Hausheld ist ein Haushaltsaufgaben-Tracker für Familien und WGs: Aufgaben mit Fotos dokumentieren, Personen zuweisen, mit Tags kategorisieren.",
+    "Househeld ist ein Haushaltsaufgaben-Tracker für Familien und WGs: Aufgaben mit Fotos dokumentieren, Personen zuweisen, mit Tags kategorisieren.",
   nav: [
     { page: "home", label: "Home" },
     { page: "features", label: "Features" },
@@ -46,35 +46,35 @@ export const de: Dictionary = {
   },
   meta: {
     home: {
-      title: "Hausheld – Haushaltsaufgaben im Griff",
+      title: "Househeld – Haushaltsaufgaben im Griff",
       description:
-        "Hausheld ist ein Haushaltsaufgaben-Tracker für Familien und WGs: Aufgaben mit Fotos dokumentieren, Personen zuweisen, mit Tags kategorisieren.",
+        "Househeld ist ein Haushaltsaufgaben-Tracker für Familien und WGs: Aufgaben mit Fotos dokumentieren, Personen zuweisen, mit Tags kategorisieren.",
     },
     features: {
       title: "Features",
       description:
-        "Alle Funktionen von Hausheld: Aufgaben mit Fotos, Zuweisung an Personen, globale Tags, Prioritäten, Filter, Board-Ansicht – ohne Konto und ohne Cloud.",
+        "Alle Funktionen von Househeld: Aufgaben mit Fotos, Zuweisung an Personen, globale Tags, Prioritäten, Filter, Board-Ansicht – ohne Konto und ohne Cloud.",
     },
     faq: {
       title: "FAQ",
       description:
-        "Häufige Fragen zu Hausheld: Kosten, Konto, Datenspeicherung, Nutzung auf mehreren Geräten, Fotos und Löschen von Aufgaben.",
+        "Häufige Fragen zu Househeld: Kosten, Konto, Datenspeicherung, Nutzung auf mehreren Geräten, Fotos und Löschen von Aufgaben.",
     },
     about: {
       title: "About",
       description:
-        "Hintergrund zu Hausheld: entstanden als Übungsprojekt im CAS-Modul «Viben und Coden» – mit Next.js, React, Tailwind CSS und TypeScript.",
+        "Hintergrund zu Househeld: entstanden als Übungsprojekt im CAS-Modul «Viben und Coden» – mit Next.js, React, Tailwind CSS und TypeScript.",
     },
     appTesten: {
       title: "App testen",
       description:
-        "Hausheld in wenigen Minuten ausprobieren: App öffnen, Beispieldaten laden, eigene Aufgabe erfassen – ohne Konto und ohne Installation.",
+        "Househeld in wenigen Minuten ausprobieren: App öffnen, Beispieldaten laden, eigene Aufgabe erfassen – ohne Konto und ohne Installation.",
     },
   },
   home: {
     badge: "Ohne Konto · Ohne Cloud · Kostenlos",
     h1: "Haushaltsaufgaben für Familien und WGs an einem Ort",
-    lead: "Hausheld ist ein kostenloser Haushaltsaufgaben-Tracker für Familien und WGs. Er sammelt alle Aufgaben an einem Ort – dokumentiert mit Fotos, zugewiesen an Personen, kategorisiert mit Tags –, damit klar ist, wer was bis wann und wo erledigt.",
+    lead: "Househeld ist ein kostenloser Haushaltsaufgaben-Tracker für Familien und WGs. Er sammelt alle Aufgaben an einem Ort – dokumentiert mit Fotos, zugewiesen an Personen, kategorisiert mit Tags –, damit klar ist, wer was bis wann und wo erledigt.",
     ctaPrimary: "App öffnen ↗",
     ctaSecondary: "Funktionen ansehen",
     note: "Läuft direkt im Browser. Keine Installation, keine Registrierung.",
@@ -130,7 +130,7 @@ export const de: Dictionary = {
   features: {
     eyebrow: "Features",
     title: "Alles, was ein Haushalt braucht – und nichts mehr",
-    lead: "Hausheld verzichtet bewusst auf Ballast. Diese Funktionen sind da, weil sie im Alltag gebraucht werden.",
+    lead: "Househeld verzichtet bewusst auf Ballast. Diese Funktionen sind da, weil sie im Alltag gebraucht werden.",
     photoAlt: "Wischmopp auf Holzboden",
     photoCaption: "Ein Foto zeigt genau, was zu tun ist – kein Rätselraten mehr.",
     gridTitle: "Funktionen im Überblick",
@@ -196,9 +196,9 @@ export const de: Dictionary = {
     lead: "Die wichtigsten Antworten zu Nutzung, Daten und Grenzen der App.",
     items: [
       {
-        question: "Was kostet Hausheld?",
+        question: "Was kostet Househeld?",
         answer:
-          "Nichts. Hausheld ist im Rahmen eines Studienprojekts entstanden und frei nutzbar. Es gibt keine Bezahlfunktionen und keine Werbung.",
+          "Nichts. Househeld ist im Rahmen eines Studienprojekts entstanden und frei nutzbar. Es gibt keine Bezahlfunktionen und keine Werbung.",
       },
       {
         question: "Brauche ich ein Konto?",
@@ -221,7 +221,7 @@ export const de: Dictionary = {
           "Dann sind die Aufgaben und Fotos weg. Der private Modus oder blockierter Browserspeicher verhindern die Nutzung ebenfalls – in dem Fall zeigt die App einen entsprechenden Hinweis.",
       },
       {
-        question: "Funktioniert Hausheld auf dem Handy?",
+        question: "Funktioniert Househeld auf dem Handy?",
         answer:
           "Ja. Die App ist für kleine Bildschirme gebaut und lässt sich über den Browser zum Startbildschirm hinzufügen. Fotos können direkt mit der Kamera aufgenommen werden.",
       },
@@ -249,12 +249,12 @@ export const de: Dictionary = {
   about: {
     eyebrow: "About",
     title: "Aus einem ganz alltäglichen Ärgernis entstanden",
-    lead: "Hausheld ist ein Übungsprojekt – und gleichzeitig der Versuch, ein echtes Problem so klein wie möglich zu lösen.",
+    lead: "Househeld ist ein Übungsprojekt – und gleichzeitig der Versuch, ein echtes Problem so klein wie möglich zu lösen.",
     ideaTitle: "Die Idee",
     ideaText1:
       "In den meisten Haushalten werden Aufgaben mündlich verteilt oder in einem Chat erwähnt – und gehen dort zwischen Terminen, Links und Sprachnachrichten unter. Wer was übernimmt, ist selten schriftlich festgehalten, und «das Bad putzen» meint für alle etwas anderes.",
     ideaText2:
-      "Hausheld ist die Antwort darauf – ein Haushaltsaufgaben-Tracker für Familien und WGs, bei dem eine Aufgabe nur einen Titel braucht. Alles andere – Foto, Person, Tag, Datum, Priorität – ist optional und macht die Aufgabe Schritt für Schritt eindeutiger. Das Foto ersetzt dabei die lange Erklärung.",
+      "Househeld ist die Antwort darauf – ein Haushaltsaufgaben-Tracker für Familien und WGs, bei dem eine Aufgabe nur einen Titel braucht. Alles andere – Foto, Person, Tag, Datum, Priorität – ist optional und macht die Aufgabe Schritt für Schritt eindeutiger. Das Foto ersetzt dabei die lange Erklärung.",
     targetGroupTitle: "Zielgruppe",
     targetGroupText:
       "Familien und WGs, die anfallende Haushaltsaufgaben gemeinsam erfassen und verteilen wollen – ohne sich vorher auf ein Projektmanagement-Tool einigen zu müssen.",
@@ -318,14 +318,14 @@ export const de: Dictionary = {
     finalTitle: "Los geht's",
     finalText:
       "Die App öffnet sich in einem neuen Tab – diese Seite bleibt geöffnet, falls du die Schritte nachlesen willst.",
-    finalCta: "Hausheld öffnen ↗",
+    finalCta: "Househeld öffnen ↗",
   },
   footer: {
     appLinkLabel: "Zur App ↗",
   },
   cta: {
     defaultTitle: "Bereit für einen aufgeräumten Haushalt?",
-    defaultText: "Hausheld startet ohne Konto und ohne Installation – direkt im Browser.",
+    defaultText: "Househeld startet ohne Konto und ohne Installation – direkt im Browser.",
     exploreLabel: "App öffnen ↗",
     secondaryLabel: "So testest du",
   },
