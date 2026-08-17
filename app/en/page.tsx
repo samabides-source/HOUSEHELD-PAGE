@@ -40,7 +40,7 @@ export default function HomePage() {
               </CtaLink>
             </div>
 
-            <p className="mt-4 text-sm text-slate-500">{t.note}</p>
+            <p className="mt-4 text-sm text-slate-600">{t.note}</p>
           </div>
 
           <AppMockup locale="en" />

@@ -16,8 +16,8 @@ const VISUALS = [
     priorityRing: "ring-red-200 text-red-700",
     tagClasses: ["bg-blue-100 text-blue-800", "bg-amber-100 text-amber-800"],
     people: [
-      { initials: "SM", className: "bg-violet-500" },
-      { initials: "LK", className: "bg-emerald-500" },
+      { initials: "SM", className: "bg-violet-600" },
+      { initials: "LK", className: "bg-emerald-700" },
     ],
     photos: 2,
   },
@@ -26,7 +26,7 @@ const VISUALS = [
     priorityDot: "bg-amber-500",
     priorityRing: "ring-amber-200 text-amber-700",
     tagClasses: ["bg-blue-100 text-blue-800", "bg-violet-100 text-violet-800"],
-    people: [{ initials: "TB", className: "bg-sky-500" }],
+    people: [{ initials: "TB", className: "bg-sky-700" }],
     photos: 3,
   },
   {
@@ -34,7 +34,7 @@ const VISUALS = [
     priorityDot: "bg-slate-400",
     priorityRing: "ring-slate-200 text-slate-600",
     tagClasses: ["bg-emerald-100 text-emerald-800"],
-    people: [{ initials: "AR", className: "bg-pink-500" }],
+    people: [{ initials: "AR", className: "bg-pink-700" }],
     photos: 1,
   },
 ] as const;
@@ -61,10 +61,10 @@ export function AppMockup({ locale }: { locale: Locale }) {
         <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
           {t.filterOpen}
         </span>
-        <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-500">
+        <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">
           {t.filterDone}
         </span>
-        <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-500">
+        <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">
           {t.filterAll}
         </span>
       </div>
@@ -129,7 +129,7 @@ function MockCard({ accent, title, priority, tags, people, photos, due }: MockCa
           ))}
         </div>
 
-        <div className="mt-3 flex items-center gap-3 text-[10px] text-slate-500">
+        <div className="mt-3 flex items-center gap-3 text-[10px] text-slate-600">
           <span className="flex -space-x-1.5">
             {people.map((person) => (
               <span

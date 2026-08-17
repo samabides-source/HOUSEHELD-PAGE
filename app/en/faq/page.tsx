@@ -26,7 +26,7 @@ export default function FaqPage() {
         <div className="max-w-3xl">
           <FaqList items={t.items} />
 
-          <p className="mt-8 text-sm text-slate-500">
+          <p className="mt-8 text-sm text-slate-600">
             {t.noAnswerText}{" "}
             <Link href={path("en", "about")} className="font-semibold text-indigo-700 hover:text-indigo-900">
               {t.noAnswerLinkLabel}

@@ -109,6 +109,11 @@ Description, Canonical und hreflang-Alternates konsistent aus dem Sprachpaket.
 Alle drei über `lib/jsonld.ts` und die `<JsonLd data={...} />`-Komponente eingebunden. Neue
 strukturierte Daten immer aus dem Sprachpaket ableiten, nie Text duplizieren.
 
+`public/llms.txt` braucht laut Lighthouse-Kategorie „Agentisches Browsing“ zwingend eine
+H1-Überschrift **und** echte Markdown-Links (`[Text](https://...)`, absolute URLs) – reine
+Pfad-Auflistungen ohne Link-Syntax gelten als Fehler. Bei Änderungen mit PageSpeed Insights
+gegenprüfen.
+
 ## Faktentreue
 
 Die Seite darf der App nichts versprechen, was sie nicht kann. Verbindlich sind:
@@ -139,6 +144,13 @@ Die Seite übernimmt bewusst die visuelle Sprache der App, damit der Übergang n
 | Typografie | System-Sans über `--font-sans`, Titel `font-extrabold tracking-tight` |
 | Fliesstext | `text-slate-600`, Metadaten kleiner und gedämpft |
 | Breite | `max-w-6xl` über `<Section>`, Fliesstext `max-w-2xl`/`max-w-3xl` |
+
+**`text-slate-500` und `text-slate-400` auf hellem Grund nie für Fliesstext verwenden** – beide
+fallen unter die WCAG-AA-Kontrastgrenze (4.5:1 bei normaler Textgrösse), Lighthouse markiert das
+als Fehler. Minimum ist `text-slate-600`. Bei weisser Schrift auf Farbflächen (z. B. Initialen-
+Kreise in `AppMockup.tsx`) reicht `-600` nicht bei jedem Farbton – `emerald`/`sky`/`pink`
+brauchen `-700`, `violet` reicht `-600`; bei neuen Farben mit dem Contrast-Checker in den
+Chrome DevTools (oder PageSpeed Insights) nachprüfen.
 
 Bewusst **keine Google-Font** und keine externen Assets – der Build funktioniert ohne
 Netzwerkzugriff, und es werden keine Daten an Dritte übertragen. (Die Foto-Assets unter

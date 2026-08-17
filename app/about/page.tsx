@@ -47,15 +47,15 @@ export default function AboutPage() {
               <div className="space-y-6 px-6 pb-6 text-sm">
                 <dl className="space-y-3">
                   <div>
-                    <dt className="font-semibold text-slate-500">{t.authorLabel}</dt>
+                    <dt className="font-semibold text-slate-600">{t.authorLabel}</dt>
                     <dd>{site.author}</dd>
                   </div>
                   <div>
-                    <dt className="font-semibold text-slate-500">{t.frameworkLabel}</dt>
+                    <dt className="font-semibold text-slate-600">{t.frameworkLabel}</dt>
                     <dd>{site.context}</dd>
                   </div>
                   <div>
-                    <dt className="font-semibold text-slate-500">{t.statusLabel}</dt>
+                    <dt className="font-semibold text-slate-600">{t.statusLabel}</dt>
                     <dd>{t.statusValue}</dd>
                   </div>
                 </dl>
@@ -64,7 +64,7 @@ export default function AboutPage() {
                   {t.stack.map((item) => (
                     <li key={item.label}>
                       <span className="font-extrabold">{item.label}</span>
-                      <span className="block text-slate-500">{item.note}</span>
+                      <span className="block text-slate-600">{item.note}</span>
                     </li>
                   ))}
                 </ul>

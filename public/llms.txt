@@ -13,18 +13,25 @@ Key facts:
 - Priority levels: low, medium, urgent ("dringend" is a priority, not a tag).
 - Not in scope: user authentication/accounts, AI features, push notifications, multi-language app UI (the app itself is German-only; this marketing site is bilingual).
 - Author: Sandro Müntener. Context: CAS AIMP, module "Viben und Coden", FS26, Switzerland.
-- The web app is a separate product from this marketing site: https://househeld-app.vercel.app/
 
-Pages on this site:
-- Home (German): /
-- Home (English): /en
-- Features (German): /features — full feature list
-- Features (English): /en/features
-- FAQ (German): /faq — structured Q&A, also available as FAQPage schema.org markup
-- FAQ (English): /en/faq
-- About (German): /about — background, tech stack, contact
-- About (English): /en/about
-- Try the app (German): /app-testen — step-by-step walkthrough, also available as HowTo schema.org markup
-- Try the app (English): /en/try-the-app
+## Pages (German)
+
+- [Home](https://househeld-page.vercel.app/): what Hausheld is and who it's for
+- [Features](https://househeld-page.vercel.app/features): full feature list
+- [FAQ](https://househeld-page.vercel.app/faq): structured Q&A, also available as FAQPage schema.org markup
+- [About](https://househeld-page.vercel.app/about): background, tech stack, contact
+- [Try the app](https://househeld-page.vercel.app/app-testen): step-by-step walkthrough, also available as HowTo schema.org markup
+
+## Pages (English)
+
+- [Home](https://househeld-page.vercel.app/en): what Hausheld is and who it's for
+- [Features](https://househeld-page.vercel.app/en/features): full feature list
+- [FAQ](https://househeld-page.vercel.app/en/faq): structured Q&A, also available as FAQPage schema.org markup
+- [About](https://househeld-page.vercel.app/en/about): background, tech stack, contact
+- [Try the app](https://househeld-page.vercel.app/en/try-the-app): step-by-step walkthrough, also available as HowTo schema.org markup
+
+## Optional
+
+- [The Hausheld web app](https://househeld-app.vercel.app/): the actual product (separate from this marketing site), German and English
 
 This site does not use tracking, analytics or advertising. Content on every page is static and safe to crawl and cite.

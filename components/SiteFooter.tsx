@@ -23,7 +23,7 @@ export function SiteFooter() {
             </span>
             <span className="text-lg font-extrabold tracking-tight">{site.name}</span>
           </div>
-          <p className="mt-2 max-w-sm text-sm text-slate-500">{dict.claim}</p>
+          <p className="mt-2 max-w-sm text-sm text-slate-600">{dict.claim}</p>
         </div>
 
         <nav
@@ -50,7 +50,7 @@ export function SiteFooter() {
         </nav>
       </div>
 
-      <div className="mx-auto max-w-6xl px-4 pb-10 text-xs text-slate-400">
+      <div className="mx-auto max-w-6xl px-4 pb-10 text-xs text-slate-600">
         {site.name} · {locale === "de" ? "Übungsprojekt" : "Student project"} {site.context} ·{" "}
         {site.author} ·{" "}
         {locale === "de"

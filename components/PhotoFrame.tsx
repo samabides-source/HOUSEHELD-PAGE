@@ -28,7 +28,7 @@ export function PhotoFrame({
         className="h-auto w-full object-cover"
       />
       {caption ? (
-        <figcaption className="px-5 py-3 text-xs text-slate-500">{caption}</figcaption>
+        <figcaption className="px-5 py-3 text-xs text-slate-600">{caption}</figcaption>
       ) : null}
     </figure>
   );

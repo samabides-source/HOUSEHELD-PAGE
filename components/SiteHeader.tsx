@@ -72,7 +72,7 @@ export function SiteHeader() {
           <Link
             href={otherHref}
             hrefLang={locale === "de" ? "en" : "de-CH"}
-            className="whitespace-nowrap rounded-full px-3 py-1.5 text-sm font-semibold text-slate-400 transition hover:bg-slate-100 hover:text-slate-600"
+            className="whitespace-nowrap rounded-full px-3 py-1.5 text-sm font-semibold text-slate-600 transition hover:bg-slate-100 hover:text-slate-800"
           >
             {locale === "de" ? "EN" : "DE"}
           </Link>
