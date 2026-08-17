@@ -1,6 +1,7 @@
 # Househeld – Marketingseite
 
 Öffentliche Website zur Web-App **Househeld**, einem Haushaltsaufgaben-Tracker für Familien und WGs.
+
 Übungsprojekt (Modul „Viben und Coden“) – Next.js 15, React 19, Tailwind CSS v4, TypeScript.
 Zweisprachig: Deutsch (Standard) und Englisch (`/en`).
 
@@ -35,13 +36,12 @@ Alle Texte stehen in [lib/content.de.ts](lib/content.de.ts) und
 [lib/content.types.ts](lib/content.types.ts)), sprachunabhängige Fakten (Name, Autor, URLs) in
 [lib/site.ts](lib/site.ts). Die Seiten selbst enthalten kaum Fliesstext.
 
-## SEO / AEO / GEO
+## Deployment
 
-- Strukturierte Daten (JSON-LD): `SoftwareApplication` auf der Startseite, `FAQPage` auf `/faq`,
-  `HowTo` auf `/app-testen` – generiert aus [lib/jsonld.ts](lib/jsonld.ts).
-- `sitemap.xml` und `robots.txt` decken beide Sprachen ab, inkl. `hreflang`-Alternates.
-- [public/llms.txt](public/llms.txt) fasst die Seite maschinenlesbar für LLM-Crawler zusammen.
-- OG-Bilder werden dynamisch generiert (`app/opengraph-image.tsx`, `app/en/opengraph-image.tsx`).
+Auf Vercel als Next.js-Projekt importieren, ohne weitere Konfiguration. Läuft produktiv unter
+<https://househeld-page.vercel.app/>, hinterlegt in `site.url` (`lib/site.ts`).
+
+Details zur Architektur, Mehrsprachigkeit und den Design-Regeln: [CLAUDE.md](CLAUDE.md).
 
 ## GEO-Checkliste (Selbst-Audit)
 
@@ -104,76 +104,3 @@ Checkliste, aber direkt daraus entstanden):
 - Dabei aufgefallen: `site.url` zeigte auf eine falsche Platzhalter-Domain
   (`hausheld-page.vercel.app` statt `househeld-page.vercel.app`) – betraf Canonical, OG-Tags,
   Sitemap und JSON-LD auf der gesamten Seite, jetzt korrigiert.
-
-## Entwicklungsverlauf
-
-### Meilensteine
-
-Die Marketingseite entstand als Grundgerüst mit fünf Seiten (Home, Features, FAQ, About, App
-testen), im gleichen Design wie die App. Danach kamen eine Kontaktadresse auf der About-Seite
-sowie Fotos auf Home und Features dazu, und die About-Seite wurde neu strukturiert: Projekt,
-Technik und Hintergrundentscheide sind seither in einer aufklappbaren Kachel zusammengefasst.
-
-Der grösste Schritt war eine vollständige SEO-, AEO- und GEO-Überarbeitung kombiniert mit dem
-Aufbau einer kompletten englischen Sprachversion. Die Inhalte wurden dafür in getrennte deutsche
-und englische Dateien mit gemeinsamer Struktur aufgeteilt, Deutsch ohne Präfix, Englisch unter
-eigenem Pfad. Ergänzt wurden strukturierte Daten für Suchmaschinen und Sprachassistenten,
-dynamisch generierte Vorschaubilder, eine maschinenlesbare Zusammenfassung für KI-Crawler sowie
-Sprachverweise auf jeder Seite.
-
-Zum Schluss wurde die Verlinkung zur App sprachabhängig gemacht, nachdem auch die App selbst eine
-englische Version erhielt: Alle Links sowie das App-Mockup zeigen seither je nach gewählter
-Sprache auf die passende Version.
-
-Danach folgte ein eigenständiger GEO-Audit anhand einer vorgegebenen Checkliste (siehe Abschnitt
-oben). Jeder Punkt wurde einzeln geprüft – Code-Durchsicht, Live-Tests im Browser und, wo
-sinnvoll, echte externe Werkzeuge statt blosser Einschätzung: die Schema-Markups wurden bei
-validator.schema.org gegen die produktive URL validiert, nicht nur gegen lokal eingefügten Code.
-Dabei kam ans Licht, dass die in den Metadaten hinterlegte Domain die ganze Zeit falsch war
-(`hausheld-page` statt `househeld-page`) – ein reiner Tippfehler, der aber Canonical-URLs,
-Open-Graph-Tags, Sitemap und sämtliche strukturierten Daten betraf und ohne den Audit
-wahrscheinlich unentdeckt geblieben wäre. Nach der Korrektur und einem manuellen Deployment durch
-den Nutzer liess sich die Seite erstmals vollständig live testen, inklusive eines
-PageSpeed-Insights-Berichts, der zusätzlich noch unter dem Radar gebliebene
-Kontrastprobleme sowie ein nicht spezifikationskonformes `llms.txt` aufdeckte – beides wurde im
-Anschluss behoben und erneut verifiziert.
-
-### Wichtige Anpassungen
-
-- Das Home-Foto wurde mehrfach ausgetauscht, bis ein passendes Motiv gefunden war – die Lizenz
-  wurde dabei sauber pro Bild dokumentiert.
-- Die Inhalte wurden von einer einzelnen Content-Datei auf getrennte, sprachspezifische Dateien
-  mit gemeinsamer Struktur umgestellt, als Grundlage für die Zweisprachigkeit.
-- Die App-Verlinkung wurde von einer festen URL auf eine sprachabhängige Zuordnung umgebaut,
-  ebenso das App-Mockup, das seither je nach Sprache passende Texte zeigt.
-- Die Produktdefinition stand bisher nur in Meta-Daten und strukturierten Daten, nie im
-  sichtbaren Seitentext – auf Home und About wurde je ein Satz ergänzt, der das direkt und
-  eigenständig lesbar macht.
-- Auf der Features-Seite wurde eine Zwischenüberschrift vor dem Funktions-Raster ergänzt, damit
-  die Überschriftenhierarchie keinen Sprung mehr macht.
-- `llms.txt` wurde vom reinen Fliesstext-Format auf das offiziell erwartete Markdown-Format mit
-  echten Links umgestellt.
-
-### Bugfixes
-
-- Ein bei jedem Build neu gesetztes, bedeutungsloses Datum in der Sitemap wurde fest gesetzt.
-- Die Sprachangabe des Dokuments wurde korrigiert.
-- Überflüssige Screenreader-Ausgaben bei den Logo-Symbolen wurden unterdrückt.
-- Verwaiste Verweise auf die alte Content-Datei wurden bereinigt.
-- Eine überholte Aussage zur App-Oberfläche wurde im Leitfaden korrigiert.
-- Eine falsche Platzhalter-Domain in den Metadaten wurde korrigiert – betraf Canonical-URLs,
-  Open-Graph-Tags, Sitemap und alle strukturierten Daten der ganzen Seite.
-- Mehrere Text/Hintergrund-Kombinationen mit zu geringem Kontrast (teils nur 2.5:1) wurden auf
-  das WCAG-AA-Minimum von 4.5:1 angehoben.
-- Der Produktname war – vermutlich aus der DE/EN-Aufteilung der Inhalte hervorgegangen – auf der
-  gesamten Seite als „Hausheld" statt „Househeld" gelandet (Titel, Meta-Description, OG-Bilder,
-  JSON-LD, sämtliche Fliesstexte in beiden Sprachen, `llms.txt`). Auf GitHub-Repo-Namen, Live-
-  Domain und die verlinkte App als Referenz durchgehend auf „Househeld" korrigiert; die App selbst
-  wurde dabei nicht angefasst.
-
-## Deployment
-
-Auf Vercel als Next.js-Projekt importieren, ohne weitere Konfiguration. Läuft produktiv unter
-<https://househeld-page.vercel.app/>, hinterlegt in `site.url` (`lib/site.ts`).
-
-Details zur Architektur, Mehrsprachigkeit und den Design-Regeln: [CLAUDE.md](CLAUDE.md).
