@@ -165,6 +165,11 @@ Anschluss behoben und erneut verifiziert.
   Open-Graph-Tags, Sitemap und alle strukturierten Daten der ganzen Seite.
 - Mehrere Text/Hintergrund-Kombinationen mit zu geringem Kontrast (teils nur 2.5:1) wurden auf
   das WCAG-AA-Minimum von 4.5:1 angehoben.
+- Der Produktname war – vermutlich aus der DE/EN-Aufteilung der Inhalte hervorgegangen – auf der
+  gesamten Seite als „Hausheld" statt „Househeld" gelandet (Titel, Meta-Description, OG-Bilder,
+  JSON-LD, sämtliche Fliesstexte in beiden Sprachen, `llms.txt`). Auf GitHub-Repo-Namen, Live-
+  Domain und die verlinkte App als Referenz durchgehend auf „Househeld" korrigiert; die App selbst
+  wurde dabei nicht angefasst.
 
 ## Deployment
 
