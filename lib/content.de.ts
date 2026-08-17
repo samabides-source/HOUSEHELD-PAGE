@@ -74,7 +74,7 @@ export const de: Dictionary = {
   home: {
     badge: "Ohne Konto · Ohne Cloud · Kostenlos",
     h1: "Haushaltsaufgaben für Familien und WGs an einem Ort",
-    lead: "Wer macht was, bis wann und wo genau? Hausheld sammelt alle Aufgaben übersichtlich an einem Ort – dokumentiert mit Fotos, zugewiesen an Personen, kategorisiert mit Tags.",
+    lead: "Hausheld ist ein kostenloser Haushaltsaufgaben-Tracker für Familien und WGs. Er sammelt alle Aufgaben an einem Ort – dokumentiert mit Fotos, zugewiesen an Personen, kategorisiert mit Tags –, damit klar ist, wer was bis wann und wo erledigt.",
     ctaPrimary: "App öffnen ↗",
     ctaSecondary: "Funktionen ansehen",
     note: "Läuft direkt im Browser. Keine Installation, keine Registrierung.",
@@ -133,6 +133,7 @@ export const de: Dictionary = {
     lead: "Hausheld verzichtet bewusst auf Ballast. Diese Funktionen sind da, weil sie im Alltag gebraucht werden.",
     photoAlt: "Wischmopp auf Holzboden",
     photoCaption: "Ein Foto zeigt genau, was zu tun ist – kein Rätselraten mehr.",
+    gridTitle: "Funktionen im Überblick",
     items: [
       {
         id: "aufgaben",
@@ -253,7 +254,7 @@ export const de: Dictionary = {
     ideaText1:
       "In den meisten Haushalten werden Aufgaben mündlich verteilt oder in einem Chat erwähnt – und gehen dort zwischen Terminen, Links und Sprachnachrichten unter. Wer was übernimmt, ist selten schriftlich festgehalten, und «das Bad putzen» meint für alle etwas anderes.",
     ideaText2:
-      "Hausheld setzt genau dort an: Eine Aufgabe braucht nur einen Titel. Alles andere – Foto, Person, Tag, Datum, Priorität – ist optional und macht die Aufgabe Schritt für Schritt eindeutiger. Das Foto ersetzt dabei die lange Erklärung.",
+      "Hausheld ist die Antwort darauf – ein Haushaltsaufgaben-Tracker für Familien und WGs, bei dem eine Aufgabe nur einen Titel braucht. Alles andere – Foto, Person, Tag, Datum, Priorität – ist optional und macht die Aufgabe Schritt für Schritt eindeutiger. Das Foto ersetzt dabei die lange Erklärung.",
     targetGroupTitle: "Zielgruppe",
     targetGroupText:
       "Familien und WGs, die anfallende Haushaltsaufgaben gemeinsam erfassen und verteilen wollen – ohne sich vorher auf ein Projektmanagement-Tool einigen zu müssen.",

@@ -9,7 +9,7 @@ import type { Dictionary, PageKey } from "@/lib/content.types";
 export const site = {
   name: "Hausheld",
   /** URL dieser Marketingseite (für Metadaten, Sitemap, JSON-LD). */
-  url: "https://hausheld-page.vercel.app",
+  url: "https://househeld-page.vercel.app",
   author: "Sandro Müntener",
   contactEmail: "samabides@gmail.com",
   context: "CAS AIMP – Modul «Viben und Coden», FS26",

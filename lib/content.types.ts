@@ -55,6 +55,7 @@ export type Dictionary = {
     lead: string;
     photoAlt: string;
     photoCaption: string;
+    gridTitle: string;
     items: FeatureItem[];
     notIncludedTitle: string;
     notIncludedText: string;

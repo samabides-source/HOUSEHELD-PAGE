@@ -28,7 +28,8 @@ export default function FeaturesPage() {
       </Section>
 
       <Section className="pt-0">
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl">{t.gridTitle}</h2>
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {t.items.map((feature) => (
             <FeatureCard key={feature.id} feature={feature} />
           ))}

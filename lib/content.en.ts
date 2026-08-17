@@ -74,7 +74,7 @@ export const en: Dictionary = {
   home: {
     badge: "No account · No cloud · Free",
     h1: "Household chores for families and shared flats, in one place",
-    lead: "Who does what, by when and where exactly? Hausheld collects every task in one clear place – documented with photos, assigned to people, organised with tags.",
+    lead: "Hausheld is a free household chore tracker for families and shared flats. It collects every task in one place – documented with photos, assigned to people, organised with tags – so it's always clear who does what, by when and where.",
     ctaPrimary: "Open the app ↗",
     ctaSecondary: "See the features",
     note: "Runs directly in the browser. No install, no sign-up.",
@@ -133,6 +133,7 @@ export const en: Dictionary = {
     lead: "Hausheld deliberately skips the bloat. These features exist because they're actually needed day to day.",
     photoAlt: "Mop on a wooden floor",
     photoCaption: "A photo shows exactly what needs doing – no more guessing.",
+    gridTitle: "All features at a glance",
     items: [
       {
         id: "aufgaben",
@@ -253,7 +254,7 @@ export const en: Dictionary = {
     ideaText1:
       "In most households, chores get handed out verbally or mentioned in a chat – and get lost between appointments, links and voice messages. Who's doing what is rarely written down, and \"clean the bathroom\" means something different to everyone.",
     ideaText2:
-      "Hausheld starts exactly there: a task only needs a title. Everything else – photo, person, tag, date, priority – is optional and makes the task clearer, step by step. The photo replaces the long explanation.",
+      "Hausheld is the answer – a household chore tracker for families and shared flats where a task only needs a title. Everything else – photo, person, tag, date, priority – is optional and makes the task clearer, step by step. The photo replaces the long explanation.",
     targetGroupTitle: "Who it's for",
     targetGroupText:
       "Families and shared flats who want to capture and split household chores together – without first agreeing on a project management tool.",
