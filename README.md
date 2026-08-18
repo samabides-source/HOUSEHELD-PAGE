@@ -1,11 +1,12 @@
 # Househeld – Marketingseite
 
 Öffentliche Website zur Web-App **Househeld**, einem Haushaltsaufgaben-Tracker für Familien und WGs.
-
-Übungsprojekt (Modul „Viben und Coden“) – Next.js 15, React 19, Tailwind CSS v4, TypeScript.
+Übungsprojekt (Modul „Viben und Coden") – Next.js 15, React 19, Tailwind CSS v4, TypeScript.
 Zweisprachig: Deutsch (Standard) und Englisch (`/en`).
 
 Die App selbst liegt in einem eigenen Projekt: <https://househeld-app.vercel.app/>
+
+Autor: Sandro Müntener ([samabides@gmail.com](mailto:samabides@gmail.com))
 
 ## Starten
 
@@ -18,6 +19,18 @@ npm run dev
 ```
 
 http://localhost:3000 öffnen.
+
+```bash
+npm run build
+```
+
+```bash
+npm run lint
+```
+
+```bash
+npm run typecheck
+```
 
 ## Seiten
 
@@ -35,6 +48,8 @@ Alle Texte stehen in [lib/content.de.ts](lib/content.de.ts) und
 [lib/content.en.ts](lib/content.en.ts) (identische Struktur, siehe
 [lib/content.types.ts](lib/content.types.ts)), sprachunabhängige Fakten (Name, Autor, URLs) in
 [lib/site.ts](lib/site.ts). Die Seiten selbst enthalten kaum Fliesstext.
+
+Lizenzangaben zu den verwendeten Fotos: [public/images/CREDITS.md](public/images/CREDITS.md).
 
 ## Deployment
 
