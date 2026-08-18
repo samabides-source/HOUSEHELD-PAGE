@@ -104,3 +104,45 @@ Checkliste, aber direkt daraus entstanden):
 - Dabei aufgefallen: `site.url` zeigte auf eine falsche Platzhalter-Domain
   (`hausheld-page.vercel.app` statt `househeld-page.vercel.app`) – betraf Canonical, OG-Tags,
   Sitemap und JSON-LD auf der gesamten Seite, jetzt korrigiert.
+
+## Security-Checkliste (Selbst-Audit)
+
+Systematisch gegen Code, Git-History und Live-Deployment (`https://househeld-page.vercel.app/`)
+geprüft. Die Checkliste ist für Stacks mit eigenem Backend/Datenbank ausgelegt – diese Seite ist
+eine rein statische Next.js-Seite ohne Server-Code, ohne API-Routen, ohne Datenbank und ohne
+Login, entsprechend entfallen mehrere Punkte als nicht anwendbar statt als übersehen.
+
+**Kritische Punkte**
+- [x] Keine Secrets im Code/Repo: Repo-Suche nach `key`/`secret`/`token`/`password`/`api` ohne
+      Treffer, keine `.env`-Datei im Repo oder in der Git-History, `.env*` korrekt in
+      `.gitignore`
+- [x] Keine Secrets im Client-Bundle: kein einziger `NEXT_PUBLIC_`/`process.env`-Zugriff im
+      gesamten Code, Production-Build und Seitenquelltext geprüft
+- [x] Login/Accounts – entfällt: keine Auth-Bibliothek, kein `middleware.ts`, keine eigene
+      Authentifizierung (App-Link verweist nur extern auf `househeld-app.vercel.app`)
+- [x] Datenbank-Zugriffsregeln – entfällt: keine Datenbank im Projekt
+- [x] API-Routen prüfen sich selbst – entfällt: kein `app/api/**`, keine Server Actions;
+      `/api/test`, `/admin`, `/.env` liefern live 404
+- [x] Deployment-Schutz Vercel: Live-URL im frischen Browser-Tab geprüft, nur öffentliche Inhalte
+      sichtbar, keine Admin-/Testseiten erreichbar
+
+**Empfohlene Punkte**
+- [x] Claude Code absichern: `.claude/settings.local.json` erlaubt nur `node`/`npm --version`,
+      keine Hooks, kein `.mcp.json`
+- [ ] Abhängigkeiten: Pakete plausibel, Lockfile committed, aber `npm audit` meldet 3
+      High-Findings (`postcss`, `sharp`, gebündelt in `next@15.5.23`, u. a. Pfad-Traversal über
+      SourceMaps). Fix erfordert Major-Update auf `next@16.3.1` – das bricht aktuell die
+      ESLint-Flat-Config (`eslint-config-next@16` inkompatibel mit `FlatCompat` in
+      `eslint.config.mjs`), deshalb zurückgestellt statt blind gemergt
+- [ ] GitHub-Repo-Hygiene (Branch Protection, Secret Scanning, Dependabot Alerts) – bewusst nicht
+      geprüft/konfiguriert, Soloprojekt ausserhalb des Scopes dieses Audits
+- [x] Umgang mit fremden Eingaben: keine Formulare/Inputs im Code, daher keine Angriffsfläche;
+      `dangerouslySetInnerHTML` in `JsonLd.tsx` escaped `<` als Härtung, auch wenn der Inhalt
+      aktuell nur aus statischem Content besteht
+- [x] Kosten-/Missbrauchsschutz – entfällt: kein LLM-Call, kein Mailversand, keine schreibenden
+      Endpunkte
+- [x] Security Headers: `Content-Security-Policy`, `X-Frame-Options`, `X-Content-Type-Options`,
+      `Referrer-Policy` in [next.config.ts](next.config.ts) ergänzt, gegen einen lokalen
+      Production-Build verifiziert
+- [x] Betrieb – entfällt: kein Server-Code, das Logs mit Tokens/Personendaten erzeugen könnte,
+      keine Datenbank, die ein Backup bräuchte
