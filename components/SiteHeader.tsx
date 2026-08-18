@@ -34,7 +34,7 @@ export function SiteHeader() {
         <Link href={path(locale, "home")} className="flex items-center gap-2">
           <span
             aria-hidden
-            className="flex size-9 items-center justify-center rounded-2xl bg-indigo-600 text-lg text-white"
+            className="flex size-9 items-center justify-center rounded-2xl bg-red-600 text-lg text-white"
           >
             🏠
           </span>
