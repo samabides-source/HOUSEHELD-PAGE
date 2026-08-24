@@ -4,8 +4,8 @@
 Übungsprojekt (Modul „Viben und Coden") – Next.js 15, React 19, Tailwind CSS v4, TypeScript.
 Zweisprachig: Deutsch (Standard) und Englisch (`/en`).
 
-Die App selbst liegt in einem eigenen Projekt:
-<https://househeld-app.vercel.app/>
+Die App selbst liegt in einem eigenen Projekt:  
+https://househeld-app.vercel.app/  
 https://github.com/samabides-source/HOUSEHELD-APP
 
 Autor: Sandro Müntener ([samabides@gmail.com](mailto:samabides@gmail.com))
