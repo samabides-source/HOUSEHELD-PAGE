@@ -264,7 +264,7 @@ export const en: Dictionary = {
     statusLabel: "Last updated",
     statusValue: "August 2026",
     stack: [
-      { label: "Next.js 15", note: "App Router, statically served" },
+      { label: "Next.js 16", note: "App Router, statically served" },
       { label: "React 19", note: "Components and state" },
       { label: "Tailwind CSS v4", note: "Design tokens instead of stylesheet sprawl" },
       { label: "TypeScript", note: "Strict types, no any shortcuts" },
