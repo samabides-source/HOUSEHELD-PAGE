@@ -4,7 +4,9 @@
 Übungsprojekt (Modul „Viben und Coden") – Next.js 15, React 19, Tailwind CSS v4, TypeScript.
 Zweisprachig: Deutsch (Standard) und Englisch (`/en`).
 
-Die App selbst liegt in einem eigenen Projekt: <https://househeld-app.vercel.app/>
+Die App selbst liegt in einem eigenen Projekt:
+<https://househeld-app.vercel.app/>
+https://github.com/samabides-source/HOUSEHELD-APP
 
 Autor: Sandro Müntener ([samabides@gmail.com](mailto:samabides@gmail.com))
 
@@ -57,36 +59,6 @@ Auf Vercel als Next.js-Projekt importieren, ohne weitere Konfiguration. Läuft p
 <https://househeld-page.vercel.app/>, hinterlegt in `site.url` (`lib/site.ts`).
 
 Details zur Architektur, Mehrsprachigkeit und den Design-Regeln: [CLAUDE.md](CLAUDE.md).
-
-## Entwicklungsprozess SITE
-
-**Meilensteine**
-
-Die Marketingseite entstand als Grundgerüst mit fünf Seiten (Home, Features, FAQ, About, App testen) im Design der App, danach ergänzt um Kontaktangaben, Fotos und eine neu strukturierte About-Seite.
-
-Der grösste Schritt war eine vollständige SEO-/AEO-/GEO-Überarbeitung samt kompletter englischer Version: getrennte, sprachspezifische Content-Dateien, strukturierte Daten, dynamische Vorschaubilder und eine maschinenlesbare Zusammenfassung für KI-Crawler. Die Verlinkung zur App wurde anschliessend ebenfalls sprachabhängig gemacht.
-
-Ein eigenständiger GEO-Audit prüfte danach jeden Punkt einzeln, teils mit externen Werkzeugen statt blosser Einschätzung (u. a. Schema-Validierung bei validator.schema.org gegen die produktive URL). Dabei kam ein seit Langem falscher Domain-Tippfehler in den Metadaten ans Licht, der Canonical-URLs, Open-Graph und alle strukturierten Daten betraf. Ein anschliessender PageSpeed-Insights-Bericht deckte zusätzlich Kontrastprobleme und ein nicht spezifikationskonformes llms.txt auf.
-
-Zum Abschluss wurde auch die Marketing-Seite gegen dieselbe Security-Checkliste geprüft (lokal, im Git-Verlauf, live gegen Deployment und Repo). Als echte Lücken fanden sich fehlende Security-Header und drei npm-Audit-Funde; die Header wurden ergänzt, ein Next.js-Update gegen die Audit-Funde aber wieder verworfen, da es die ESLint-Konfiguration brach. Dokumentiert als „Security-Checkliste (Selbst-Audit)" im README der Marketing-Seite.
-
-**Wichtige Anpassungen**
-
-- Home-Foto mehrfach ausgetauscht, Lizenz sauber pro Bild dokumentiert
-- Inhalte von einer Content-Datei auf getrennte, sprachspezifische Dateien umgestellt (Grundlage für die Zweisprachigkeit)
-- App-Verlinkung und -Mockup auf sprachabhängige Inhalte umgebaut
-- Produktdefinition zusätzlich als lesbarer Fliesstext auf Home/About ergänzt (vorher nur in Meta-/strukturierten Daten)
-- llms.txt vom Fliesstext- aufs offiziell erwartete Markdown-Format umgestellt
-
-**Bugfixes**
-
-- Bedeutungsloses, bei jedem Build neu gesetztes Sitemap-Datum fest gesetzt; Sprachangabe des Dokuments korrigiert; überflüssige Screenreader-Ausgaben unterdrückt
-- Falsche Platzhalter-Domain in allen Metadaten und strukturierten Daten korrigiert
-- Kontrastarme Text/Hintergrund-Kombinationen auf das WCAG-AA-Minimum angehoben
-- Produktname war durchgehend als „Hausheld" statt „Househeld" gelandet (Titel, Meta-Daten, JSON-LD, Fliesstexte) – global korrigiert; die App selbst war davon nicht betroffen
-- CSP-Header (`script-src 'self'`) aus der Security-Header-Ergänzung blockierte Next.js' eigene Inline-Hydration-Scripts vollständig – die Live-Seite zeigte nur einen weissen Screen. Behoben durch Ergänzen von `unsafe-inline` in `script-src` ([next.config.ts](next.config.ts))
-- Automatischer Vercel-Deploy blieb nach einem Push zunächst über eine Stunde aus (kein Eintrag im Deployment-Verlauf, GitHub-Webhook-Log leer). Fix zunächst über einen manuell ausgelösten Deploy Hook live gebracht; anschliessend mit einem Testcommit bestätigt, dass die automatische GitHub→Vercel-Synchronisation wieder greift
-
 
 ## GEO-Checkliste (Selbst-Audit)
 
